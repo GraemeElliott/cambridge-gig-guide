@@ -1,12 +1,32 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       AppError = require('./utilities/appError'),
+      passport = require('passport'),
+      LocalStrategy = require('passport-local'),
+
+      User = require('./models/userModel'),
       
       indexRouter = require('./routes/indexRoutes'),
       gigRouter = require('./routes/gigRoutes'),
-      venueRouter = require('./routes/venueRoutes');
+      venueRouter = require('./routes/venueRoutes'),
+      userRouter = require('./routes/userRoutes');
 
 const app = express();
+
+// PASSPORT CONFIGURATION
+app.use(require('express-session')({
+  secret: process.env.PASSPORT_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//PASSPORT CONFIGURATION END
 
 // MIDDLEWARE
 app.set('view engine', 'ejs');
@@ -16,7 +36,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // MIDDLEWARE END
 
-app.use('/', indexRouter);
+//ROUTES
+app.use('/', indexRouter, userRouter);
 app.use('/gigs', gigRouter);
 app.use('/venues', venueRouter);
 

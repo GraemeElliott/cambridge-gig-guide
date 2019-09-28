@@ -1,16 +1,17 @@
 const express = require('express');
 const gigController = require('../controllers/gigController');
+const authenticationController = require('../controllers/authenticationController');
 
 const router = express.Router();
 
 router
   .route('/')
   .get(gigController.getAllGigs)
-  .post(gigController.createGig);
+  .post(authenticationController.isLoggedIn, gigController.createGig);
 
 router
   .route('/new')
-  .get(gigController.gigForm);
+  .get(authenticationController.isLoggedIn, gigController.gigForm);
 
 router
   .route('/:id')

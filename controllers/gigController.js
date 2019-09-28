@@ -3,12 +3,12 @@ const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 
 exports.gigForm = async (req, res) => {
-  res.render('new-gig');
+  res.render('gigs/new-gig');
 };
 
 exports.getAllGigs = catchAsync(async (req, res, next) => {
   const gigs = await Gig.find();
-  res.render('all-gigs', {gigs: gigs});
+  res.render('gigs/all-gigs', {gigs: gigs});
 });
 
 exports.getGig = catchAsync(async (req, res, next) => {
@@ -16,7 +16,7 @@ exports.getGig = catchAsync(async (req, res, next) => {
     if (error) {
       console.log(error);
     } else {
-      res.render("show-gig", { gig: gigPage });
+      res.render("gigs/show-gig", { gig: gigPage });
     }
   });
 });
