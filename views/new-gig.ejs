@@ -1,0 +1,18 @@
+<% include partials/_header %>
+
+<a href="/gigs">Back to all gigs</a>
+
+<h1>Create A New Gig</h1>
+   
+   <form id="Form" action="/gigs" method="POST">
+
+    <h2>Event Details</h2>
+   
+        <input type="text" name="name" placeholder="Headliner">
+        <input type="text" name="supports" placeholder="Supports">
+        <input type="text" name="venue">
+
+    <input type="submit" value="Submit">
+</form>
+
+<% include partials/_footer %>
