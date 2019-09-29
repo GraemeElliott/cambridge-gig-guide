@@ -12,6 +12,15 @@ const venueSchema = new mongoose.Schema({
   facebook: String,
   twitter: String,
   instagram: String,
+  author: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+    username: String,
+    role: String,
+    photo: String,
+  }
 });
 
 //DOCUMENT MIDDLEWARE: runs before .save() and .create()

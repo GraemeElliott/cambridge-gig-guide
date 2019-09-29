@@ -1,3 +1,19 @@
+<% include ../partials/_header %>
+
 <h1> All Venues Page</h1>
 
+<% venues.forEach((venue) => { %>
+  <div>
+    <%= venue.name %>
+  </div>
+  <div>
+    <%= venue.description %>
+  </div>
+  <div>
+    <a href='/venues/<%= venue.nameForUrl %>'>Link to venue page</a>
+  </div>
+<% }) %>
+
 <p> All Venues Page </p>
+
+<% include ../partials/_footer %>

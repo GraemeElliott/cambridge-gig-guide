@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const moment = require('moment');
+const User = require('./userModel');
 
 
 const gigSchema = new mongoose.Schema({
@@ -51,13 +52,15 @@ const gigSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  // author: {
-  //   id: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "User"
-  //   },
-  //   username: String
-  // }
+  author: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+    username: String,
+    role: String,
+    photo: String
+  }
 });
 
 //DOCUMENT MIDDLEWARE: runs before .save() and .create()

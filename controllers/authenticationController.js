@@ -2,7 +2,6 @@ const User = require('../models/userModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
 
 // REGISTER
 exports.registerForm = async (req, res) => {

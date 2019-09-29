@@ -1,0 +1,20 @@
+<% include ../partials/_header %>
+
+<a href="/gigs">Back to all gigs</a>
+
+<h1>Create A New Venue</h1>
+   
+   <form id="Form" action="/venues" method="POST">
+
+    <h2>Event Details</h2>
+   
+        <input type="text" name="name" placeholder="Headliner">
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="facebook" placeholder="Facebook">
+        <input type="text" name="twitter" placeholder="Twitter">
+        <input type="text" name="instagram" placeholder="Instagram">
+
+    <input type="submit" value="Submit">
+</form>
+
+<% include ../partials/_footer %>

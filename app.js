@@ -26,6 +26,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 //PASSPORT CONFIGURATION END
 
 // MIDDLEWARE
@@ -40,6 +45,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', indexRouter, userRouter);
 app.use('/gigs', gigRouter);
 app.use('/venues', venueRouter);
+app.use('/user', userRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
