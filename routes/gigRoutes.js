@@ -15,6 +15,12 @@ router
 
 router
   .route('/:id')
-  .get(gigController.getGig);
+  .get(gigController.getGig)
+  .put(authenticationController.checkGigOwnership, gigController.updateGig)
+  .delete(authenticationController.checkGigOwnership, gigController.deleteGig);
+
+router
+.route('/:id/edit')
+.get(authenticationController.checkGigOwnership, gigController.editGigForm);
 
 module.exports = router

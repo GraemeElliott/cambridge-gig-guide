@@ -1,0 +1,30 @@
+<% include ../partials/_header %>
+
+<h1>Edit <%= gig.name %></h1>
+<h2><%= gig.twitter %></h2>
+
+<a href="/gigs">Back to all gigs</a>
+   
+   <form id="Form" action="/gigs/<%= gig.nameForUrl %>?_method=PUT" method="POST">
+
+    <h2>Event Details</h2>
+   
+        <input type="text" id="name" name="gig[name]" value = "<%= gig.name %>" placeholder="Headliner" onkeyup="gigNameUrl()">
+
+        <input type="text" id="supports" name="gig[supports]" value = "<%= gig.supports %>" placeholder="Supports">
+        
+            <select id="venue" type="text" name="gig[venue]" onchange="venueNameUrl()">
+            <option selected><%= gig.venue %></option>       
+            <option value="Please Choose A Venue"> Please Choose A Venue </option>
+            <option value="Cambridge Corn Exchange"> Cambridge Corn Exchange </option>
+            <option value="The Junction"> The Junction </option>
+            <option value="The Blue Moon"> The Blue Moon </option>
+
+        <input id="nameForUrl" type="text" name="gig[nameForUrl]" value = "<%= gig.nameForUrl %>">
+
+        <input id="venueForUrl" type="text" name="gig[venueForUrl]" value = "<%= gig.venueForUrl %>">
+
+    <input type="submit" value="Submit">
+</form>
+
+<% include ../partials/_footer %>

@@ -1,0 +1,20 @@
+<% include ../partials/_header %>
+
+<h1>Edit <%= venue.name %></h1>
+
+<a href="/gigs">Back to all gigs</a>
+   
+   <form id="Form" action="/venues/<%= venue.nameForUrl %>?_method=PUT" method="POST">
+
+    <h2>Event Details</h2>
+   
+        <input type="text" id="name" name="venue[name]" value = "<%= venue.name %>" placeholder="Venue Name" onkeyup="venueNameChange()">
+
+        <input type="text" id="description" name="venue[description]" value = "<%= venue.description %>" placeholder="Bio">
+
+        <input id="nameForUrl" type="text" name="venue[nameForUrl]" value = "<%= venue.nameForUrl %>">
+
+    <input type="submit" value="Submit">
+</form>
+
+<% include ../partials/_footer %>

@@ -4,6 +4,12 @@
 
     <div>
         <h2><%= gig.name %></h2>
+        <% if(currentUser && gig.author.id.equals(currentUser._id)) { %>
+        <a href="/gigs/<%= gig.nameForUrl%>/edit">Edit</a>
+        <form action="/gigs/<%= gig.nameForUrl %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <% } %>
     </div>
 
 <% include ../partials/_footer %>

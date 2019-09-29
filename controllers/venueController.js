@@ -21,7 +21,75 @@ exports.getVenue = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createVenue = catchAsync (async(req, res, next) => {
-  const newVenue = await Venue.create(req.body);
-  res.redirect('/gigs');
+exports.createVenue = async (req, res) => {
+  // try/catch for async + await code
+
+  try {
+    let name = req.body.name;
+    let nameForUrl = req.body.nameForUrl;
+    let image = req.body.image;
+    let facebook = req.body.facebook;
+    let twitter = req.body.twitter;
+    let instagram = req.body.instagram;
+    let description = req.body.description;
+    let author = {
+      id: req.user._id,
+      username: req.user.username,
+      role: req.user.role,
+      photo: req.user.photo,
+    };
+
+    //get data from form and add to gigs array
+    let newVenue = {
+      name: name,
+      nameForUrl: nameForUrl,
+      image: image,
+      facebook: facebook,
+      twitter: twitter,
+      instagram: instagram,
+      description: description,
+      author: author
+    };
+
+    //Create a new gig and save it to the database
+    await Venue.create(newVenue);
+    console.log(newVenue);
+  } catch (error) {
+    console.log (error);
+  }
+  res.redirect("/venues");
+};
+
+exports.editVenueForm = catchAsync(async (req, res) => {
+  await Venue.findOne({ nameForUrl: req.params.id }, 
+    (error, editVenue) => {
+      res.render('venues/edit-venue', { venue: editVenue });
+    });
+});
+
+exports.updateVenue = catchAsync(async (req, res) => {
+  await Venue.findOneAndUpdate(
+    { nameForUrl: req.params.id },
+    req.body.venue,
+    function(error, updatedGig) {
+      if (error) {
+        res.redirect('/venues');
+      } else {
+        res.redirect('/venues/');
+      }
+    }
+  );
+});
+
+exports.deleteVenue = catchAsync(async (req, res) => {
+  await Venue.findOneAndRemove(
+    { nameForUrl: req.params.id},
+    req.body.venue, (error) => {
+      if (error) {
+        res.redirect ('/venues')
+      } else {
+        res.redirect ('/venues')
+      }
+    }
+  )
 });

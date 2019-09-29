@@ -2,7 +2,8 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       AppError = require('./utilities/appError'),
       passport = require('passport'),
-      LocalStrategy = require('passport-local'),
+      LocalStrategy = require('passport-local').Strategy,
+      methodOverride = require('method-override'),
 
       User = require('./models/userModel'),
       
@@ -36,8 +37,9 @@ app.use((req, res, next) => {
 // MIDDLEWARE
 app.set('view engine', 'ejs');
 app.use(express.json());
-app.use(express.static(`${__dirname}/public`));
+app.use("/assets", express.static(__dirname + "/assets"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
 // MIDDLEWARE END
 

@@ -77,3 +77,38 @@ exports.createGig = async (req, res) => {
   }
   res.redirect("/gigs");
 };
+
+exports.editGigForm = catchAsync(async (req, res) => {
+  await Gig.findOne({ nameForUrl: req.params.id }, 
+    (error, editGig) => {
+      res.render('gigs/edit-gig', { gig: editGig });
+    });
+});
+
+exports.updateGig = catchAsync(async (req, res) => {
+  await Gig.findOneAndUpdate(
+    { nameForUrl: req.params.id },
+    req.body.gig,
+    function(error, updatedGig) {
+      if (error) {
+        res.redirect('/gigs');
+      } else {
+        res.redirect('/gigs/');
+      }
+    }
+  );
+});
+
+exports.deleteGig = catchAsync(async (req, res) => {
+  await Gig.findOneAndRemove(
+    { nameForUrl: req.params.id},
+    req.body.gig, (error) => {
+      if (error) {
+        res.redirect ('/gigs')
+      } else {
+        res.redirect ('/gigs')
+      }
+    }
+  )
+});
+

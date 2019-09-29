@@ -15,6 +15,12 @@ router
 
 router
   .route('/:id')
-  .get(venueController.getVenue);
+  .get(venueController.getVenue)
+  .put(authenticationController.checkVenueOwnership, venueController.updateVenue)
+  .delete(authenticationController.checkVenueOwnership, venueController.deleteVenue);
+
+router
+  .route('/:id/edit')
+  .get(authenticationController.checkVenueOwnership, venueController.editVenueForm);
 
 module.exports = router

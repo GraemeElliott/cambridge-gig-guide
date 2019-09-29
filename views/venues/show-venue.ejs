@@ -4,6 +4,10 @@
 
     <div>
         <h2><%= venue.name %></h2>
+        <a href="/venues/<%= venue.nameForUrl%>/edit">Edit</a>
+        <form action="/venues/<%= venue.nameForUrl %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
     </div>
 
 <% include ../partials/_footer %>

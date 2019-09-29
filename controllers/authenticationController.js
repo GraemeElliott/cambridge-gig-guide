@@ -1,4 +1,6 @@
 const User = require('../models/userModel');
+const Gig = require('../models/gigModel');
+const Venue = require('../models/venueModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const passport = require('passport');
@@ -48,5 +50,45 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
     return next();
   }
   res.redirect('/login');
+});
+
+// CHECK OWNERSHIP
+
+exports.checkGigOwnership = catchAsync(async (req, res, next) => {
+  if (req.isAuthenticated()) {
+    await Gig.findOne({ nameForUrl: req.params.id }, 
+      (error, editGig) => {
+        if (error) {
+          res.redirect('back')
+        } else {
+          if (editGig.author.id.equals(req.user._id)) {
+            next();
+          } else {
+            res.redirect('back');
+          };          
+        };
+    });
+  } else {
+    res.redirect('back');
+  };
+});
+
+exports.checkVenueOwnership = catchAsync(async (req, res, next) => {
+  if (req.isAuthenticated()) {
+    await Venue.findOne({ nameForUrl: req.params.id }, 
+      (error, editVenue) => {
+        if (error) {
+          res.redirect('back')
+        } else {
+          if (editVenue.author.id.equals(req.user._id)) {
+            next();
+          } else {
+            res.redirect('back');
+          };          
+        };
+    });
+  } else {
+    res.redirect('back');
+  };
 });
 
