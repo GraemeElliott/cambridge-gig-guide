@@ -8,6 +8,8 @@ function gigNameUrl() {
     .replace(/ +/g, "-"));
 };
 
+//Venue name for URL (Gig Form)
+
 function venueNameUrl() {
   let venueName = (document.getElementById("venueForUrl").value = document
     .getElementById("venue")
@@ -15,6 +17,8 @@ function venueNameUrl() {
     .replace(/[^\w ]+/g, "")
     .replace(/ +/g, "-"));
 };
+
+//Venue name for URL (Venue Form)
 
 function venueNameChange() {
   let gigName = (document.getElementById("nameForUrl").value = document

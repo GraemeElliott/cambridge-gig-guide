@@ -25,15 +25,15 @@ const gigSchema = new mongoose.Schema({
   venueForUrl: String,
   date: {
     type: Date,
-    //required: [true, 'A gig must have a date']
+    required: [true, 'A gig must have a date']
   },
   ticketsUrl: {
     type: String,
-    //required: [true, 'A gig must have a URL for ticket purchases']
+    required: [true, 'A gig must have a URL for ticket purchases']
   },
   price: {
     type: Number,
-    //required: [true, 'A gig must have a price']
+    required: [true, 'A gig must have a price']
   },
   image: {
     type: String,
@@ -41,12 +41,15 @@ const gigSchema = new mongoose.Schema({
   },
   facebook: String,
   twitter: String,
+  instagram: String,
   youtube: String,
-  spotify: String,
+  youtubeVideo: String,
+  spotifyPlayer: String,
   bandcamp: String,
+  bandcampPlayer: String,
   description: {
     type: String,
-   //required: [true, 'A gig must have a description']
+    required: [true, 'A gig must have a description']
   },
   dateAdded: {
     type: Date,
@@ -74,12 +77,12 @@ gigSchema.pre('save', function (next) {
   next();
 });
 
-// gigSchema.pre('save', function (next) {
-//   const gigDate = this.date;
-//   const bandName = slugify(this.name, { lower: true });
-//   this.gigId = `${bandName}-${moment(gigDate).format('YYYYMMDD')}`;
-//   next();
-// });
+gigSchema.pre('save', function (next) {
+  const gigDate = this.date;
+  const bandName = slugify(this.name, { lower: true });
+  this.gigId = `${bandName}-${moment(gigDate).format('YYYYMMDD')}`;
+  next();
+});
 
 const Gig = mongoose.model('Gig', gigSchema);
 

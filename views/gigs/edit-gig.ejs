@@ -13,16 +13,45 @@
 
         <input type="text" id="supports" name="gig[supports]" value = "<%= gig.supports %>" placeholder="Supports">
         
-            <select id="venue" type="text" name="gig[venue]" onchange="venueNameUrl()">
+        <select id="venue" type="text" name="gig[venue]" onchange="venueNameUrl()">
             <option selected><%= gig.venue %></option>       
             <option value="Please Choose A Venue"> Please Choose A Venue </option>
             <option value="Cambridge Corn Exchange"> Cambridge Corn Exchange </option>
             <option value="The Junction"> The Junction </option>
             <option value="The Blue Moon"> The Blue Moon </option>
+        </select>
 
-        <input id="nameForUrl" type="text" name="gig[nameForUrl]" value = "<%= gig.nameForUrl %>">
+        <input type="date" id="date" name="gig[date]" value = "<%= gig.date %>" placeholder="Gig Date">
 
-        <input id="venueForUrl" type="text" name="gig[venueForUrl]" value = "<%= gig.venueForUrl %>">
+        <input type="text" id="ticketsUrl" name="gig[ticketsUrl]" value = "<%= gig.ticketsUrl %>" placeholder="Tickets URL">
+
+        <input type="number" id="price" name="gig[price]" value = "<%= gig.price %>" placeholder="Price">
+
+        <input type="text" id="facebook" name="gig[facebook]" value = "<%= gig.facebook %>" placeholder="Facebook Profile URL">
+
+        <input type="text" id="twitter" name="gig[twitter]" value = "<%= gig.twitter %>" placeholder="Twitter Profile URL">
+
+        <input type="text" id="instagram" name="gig[instagram]" value = "<%= gig.instagram %>" placeholder="Instagram Profile URL">
+
+        <input type="text" id="youtube" name="gig[youtube]" value = "<%= gig.youtube %>" placeholder="YouTube Profile URL">
+
+        <input type="text" id="youtubeVideo" name="gig[youtubeVideo]" value = "<%= gig.youtubeVideo %>" placeholder="YouTube Embed Code">
+
+        <input type="text" id="spotifyPlayer" name="gig[spotifyPlayer]" value = "<%= gig.spotifyPlayer %>" placeholder="Spotify Player Embed Code">
+
+        <input type="text" id="bandcamp" name="gig[bandcamp]" value = "<%= gig.bandcamp %>" placeholder="Bandcamp Profile URL">
+
+        <input type="text" id="bandcampPlayer" name="gig[bandcampPlayer]" value = "<%= gig.bandcampPlayer %>" placeholder="Bandcamp Player Embed Code">
+
+        <textarea type="text" id="description" name="gig[description]"><%= gig.description %></textarea>
+        
+        <!-- Hidden Fields -->
+
+        <input id="nameForUrl" type="hidden" name="gig[nameForUrl]" value = "<%= gig.nameForUrl %>">
+
+        <input id="venueForUrl" type="hidden" name="gig[venueForUrl]" value = "<%= gig.venueForUrl %>">
+
+        <!-- Hidden Fields END -->
 
     <input type="submit" value="Submit">
 </form>

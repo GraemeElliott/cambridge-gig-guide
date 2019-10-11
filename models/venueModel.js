@@ -4,11 +4,15 @@ const slugify = require('slugify');
 const venueSchema = new mongoose.Schema({
   name: {
     type: String,
+    required: [true, 'A venue must have a name'],
     unique: true
   },
   nameForUrl: String,
   image: String,
-  description: String,
+  description: {
+    type: String,
+    required: [true, 'A venue must have a description']
+  },
   facebook: String,
   twitter: String,
   instagram: String,

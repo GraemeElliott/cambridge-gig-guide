@@ -36,9 +36,12 @@ exports.createGig = async (req, res) => {
     let price = req.body.price;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
+    let instagram = req.body.instagram;
     let youtube = req.body.youtube;
-    let spotify = req.body.spotify;
+    let youtubeVideo = req.body.youtubeVideo;
+    let spotifyPlayer = req.body.spotifyPlayer;
     let bandcamp = req.body.bandcamp;
+    let bandcampPlayer = req.body.bandcampPlayer;
     let description = req.body.description;
     let dateAdded = req.body.dateAdded;
     let author = {
@@ -62,9 +65,12 @@ exports.createGig = async (req, res) => {
       price: price,
       facebook: facebook,
       twitter: twitter,
+      instagram: instagram,
       youtube: youtube,
-      spotify: spotify,
+      youtubeVideo: youtubeVideo,
+      spotifyPlayer: spotifyPlayer,
       bandcamp: bandcamp,
+      bandcampPlayer: bandcampPlayer,
       description: description,
       dateAdded: dateAdded
     };
