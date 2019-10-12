@@ -1,6 +1,10 @@
+//For Cloudinary
+const { cloudinary, upload } = require("../models/cloudinary");
+
 const Venue = require('../models/venueModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
+const multer = require('multer');
 
 exports.venueForm = async (req, res) => {
   res.render('venues/new-venue');
@@ -22,12 +26,15 @@ exports.getVenue = catchAsync(async (req, res, next) => {
 });
 
 exports.createVenue = async (req, res) => {
-  // try/catch for async + await code
+  if (!req.file) {
+    req.flash("error", "Please fill out this field");
+    return res.redirect("back");
+  };
 
+  // try/catch for async + await code
   try {
     let name = req.body.name;
     let nameForUrl = req.body.nameForUrl;
-    let image = req.body.image;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
@@ -38,6 +45,10 @@ exports.createVenue = async (req, res) => {
       role: req.user.role,
       photo: req.user.photo,
     };
+
+    // upload image to cloudinary and set resulting url to image variable
+    let result = await cloudinary.uploader.upload(req.file.path);
+    let image = result.secure_url;
 
     //get data from form and add to gigs array
     let newVenue = {

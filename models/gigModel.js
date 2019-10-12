@@ -39,6 +39,7 @@ const gigSchema = new mongoose.Schema({
     type: String,
     //required: [true, 'A gig must have an image']
   },
+  imageId: String,
   facebook: String,
   twitter: String,
   instagram: String,

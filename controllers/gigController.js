@@ -1,6 +1,10 @@
+//For Cloudinary
+const { cloudinary, upload } = require("../models/cloudinary");
+
 const Gig = require('../models/gigModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
+const multer = require('multer');
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -22,13 +26,16 @@ exports.getGig = catchAsync(async (req, res, next) => {
 });
 
 exports.createGig = async (req, res) => {
-  // try/catch for async + await code
+  if (!req.file) {
+    req.flash("error", "Please fill out this field");
+    return res.redirect("back");
+  };
 
+  // try/catch for async + await code
   try {
     let name = req.body.name;
     let nameForUrl = req.body.nameForUrl;
     let supports = req.body.supports;
-    let image = req.body.image;
     let venue = req.body.venue;
     let venueForUrl = req.body.venueForUrl;
     let date = req.body.date;
@@ -51,12 +58,18 @@ exports.createGig = async (req, res) => {
       photo: req.user.photo,
     };
 
+    // upload image to cloudinary and set resulting url to image variable
+    let result = await cloudinary.v2.uploader.upload(req.file.path);
+    let image = result.secure_url;
+    let imageId = result.public_id;
+
     //get data from form and add to gigs array
     let newGig = {
       name: name,
       nameForUrl: nameForUrl,
       supports: supports,
       image: image,
+      imageId: imageId,
       author: author,
       venue: venue,
       venueForUrl: venueForUrl,
@@ -91,27 +104,61 @@ exports.editGigForm = catchAsync(async (req, res) => {
     });
 });
 
-exports.updateGig = catchAsync(async (req, res) => {
+exports.updateGig = async (req, res) => {
   await Gig.findOneAndUpdate(
     { nameForUrl: req.params.id },
     req.body.gig,
-    function(error, updatedGig) {
+    async function(error, gig) {
       if (error) {
-        res.redirect('/gigs');
+        res.redirect('back');
       } else {
+        if (req.file) {
+          // try/catch for async + await code
+          try {
+            await cloudinary.v2.uploader.destroy(gig.imageId);
+            let result = await cloudinary.v2.uploader.upload(req.file.path);
+            gig.image = result.secure_url;
+            gig.imageId = result.public_id;
+
+          } catch (error) {
+            console.log(error);
+            return res.redirect('back');
+          };
+        };
+        gig.name = req.body.gig.name;
+        gig.nameForUrl = req.body.gig.nameForUrl;
+        gig.supports = req.body.gig.supports;
+        gig.venue = req.body.gig.venue;
+        gig.venueForUrl = req.body.gig.venueForUrl;
+        gig.date = req.body.gig.date;
+        gig.ticketsUrl = req.body.gig.ticketsUrl;
+        gig.price = req.body.gig.price;
+        gig.facebook = req.body.gig.facebook;
+        gig.twitter = req.body.gig.twitter;
+        gig.instagram = req.body.gig.instagram;
+        gig.youtube = req.body.gig.youtube;
+        gig.youtubeVideo = req.body.gig.youtubeVideo;
+        gig.spotifyPlayer = req.body.gig.spotifyPlayer;
+        gig.bandcamp = req.body.gig.bandcamp;
+        gig.bandcampPlayer = req.body.gig.bandcampPlayer;
+        gig.description = req.body.gig.description;
+        gig.save();
         res.redirect('/gigs/');
       }
     }
   );
-});
+};
 
 exports.deleteGig = catchAsync(async (req, res) => {
   await Gig.findOneAndRemove(
     { nameForUrl: req.params.id},
-    req.body.gig, (error) => {
+    req.body.gig, async (error, gig) => {
       if (error) {
-        res.redirect ('/gigs')
+        res.redirect ('back')
       } else {
+        let result = await cloudinary.v2.uploader.destroy(gig.imageId);
+        gig.image = result.secure_url;
+        gig.imageId = result.public_id;
         res.redirect ('/gigs')
       }
     }

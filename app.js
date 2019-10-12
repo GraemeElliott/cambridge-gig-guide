@@ -4,6 +4,7 @@ const express = require('express'),
       passport = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       methodOverride = require('method-override'),
+      flatpickr = require("flatpickr"),
 
       User = require('./models/userModel'),
       

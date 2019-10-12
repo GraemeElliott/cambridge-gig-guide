@@ -5,7 +5,7 @@
 
 <a href="/gigs">Back to all gigs</a>
    
-   <form id="Form" action="/gigs/<%= gig.nameForUrl %>?_method=PUT" method="POST">
+   <form id="Form" action="/gigs/<%= gig.nameForUrl %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
     <h2>Event Details</h2>
    
@@ -15,13 +15,23 @@
         
         <select id="venue" type="text" name="gig[venue]" onchange="venueNameUrl()">
             <option selected><%= gig.venue %></option>       
-            <option value="Please Choose A Venue"> Please Choose A Venue </option>
             <option value="Cambridge Corn Exchange"> Cambridge Corn Exchange </option>
-            <option value="The Junction"> The Junction </option>
+            <option value="Flying Pig"> Flying Pig </option>
+            <option value="Hidden Rooms"> Hidden Rooms </option>
+            <option value="Storey's Field Centre"> Storey's Field Centre </option>
             <option value="The Blue Moon"> The Blue Moon </option>
+            <option value="The Corner House"> The Corner House </option>
+            <option value="The Haymakers"> The Haymarkers </option>
+            <option value="The Junction"> The Junction </option>
+            <option value="The Portland Arms"> The Portland Arms </option>
         </select>
 
-        <input type="date" id="date" name="gig[date]" value = "<%= gig.date %>" placeholder="Gig Date">
+        <input type="text" id="date" name="gig[date]" value = "<%= gig.date %>">
+
+        <div>
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
 
         <input type="text" id="ticketsUrl" name="gig[ticketsUrl]" value = "<%= gig.ticketsUrl %>" placeholder="Tickets URL">
 

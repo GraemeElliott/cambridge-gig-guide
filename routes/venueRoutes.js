@@ -1,4 +1,5 @@
 const express = require('express');
+const { cloudinary, upload } = require("../models/cloudinary");
 const venueController = require('../controllers/venueController');
 const authenticationController = require('../controllers/authenticationController');
 
@@ -7,7 +8,7 @@ const router = express.Router();
 router
   .route('/')
   .get(venueController.getAllVenues)
-  .post(authenticationController.isLoggedIn, venueController.createVenue);
+  .post(authenticationController.isLoggedIn, upload.single('image'),venueController.createVenue);
 
 router
   .route('/new')
