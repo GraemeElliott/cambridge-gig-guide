@@ -41,45 +41,6 @@ const sendErrorDev = (error, req, res) => {
   });
 };
 
-const sendErrorProd = (error, req, res) => {
-  // A) API
-  if (req.originalUrl.startsWith('/api')) {
-    // A) Operational, trusted error: send message to client
-    if (error.isOperational) {
-      return res.status(error.statusCode).json({
-        status: error.status,
-        message: error.message,
-      });
-    }
-    // B) Programming or other unknown error: don't leak error details
-    // 1) Log error
-    console.error('Error: ', error);
-    // 2) Send generic message
-    return res.status(500).json({
-      status: 'error',
-      message: 'Something went very wrong!'
-    });
-  }
-
-  // B) RENDERED WEBSITE
-  // A) Operational, trusted error: send message to client
-  if (error.isOperational) {
-    console.log(error);
-    return res.status(error.statusCode).render('error', {
-      title: 'Something went wrong!',
-      msg: error.message,
-    });
-  }
-  // B) Programming or other unknown error: don't leak error details
-  // 1) Log error
-  console.error('Error: ', error);
-  // 2) Send generic message
-  return res.status(error.statusCode).render('error', {
-    title: 'Something went wrong!',
-    msg: 'Please try again later.'
-  });
-};
-
 module.exports = (error, req, res, next) => {
   error.statusCode = error.statusCode || 500;
   error.status = error.status || 'error';
