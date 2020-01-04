@@ -13,6 +13,7 @@ const venueSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A venue must have a description']
   },
+  website: String,
   facebook: String,
   twitter: String,
   instagram: String,

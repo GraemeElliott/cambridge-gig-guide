@@ -12,6 +12,12 @@
         <% } %>
     </div>
 
+    <p><%= gig.description %></p>
+
+    <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
     <img src="<%= gig.image%>">
     <p><%= gig.date %></p>
     <p><%= gig.venueForUrl %></p>

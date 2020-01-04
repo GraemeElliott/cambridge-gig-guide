@@ -8,17 +8,21 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
   <link rel="stylesheet" type="text/css" href="../../assets/styles/styles.css">
 
+  <link rel="shortcut icon" href="about:blank">
 
+  <div class="page-wrapper">
+      <div class="nav-wrapper">
+       <nav class="navbar">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Bluestar_%28bus_company%29_logo.svg/1280px-Bluestar_%28bus_company%29_logo.svg.png" alt="Company Logo">
+          <ul>
+              <li class="nav-item"><a href="#">Home</a></li>
+              <li class="nav-item"><a href="#">Gigs</a></li>
+              <li class="nav-item"><a href="#">Venues</a></li>
+              <li class="nav-item"><a href="#">Contact Us</a></li>
+              <li class="nav-item"><a href="/login">Promoter/Venue Login</a></li>
+            </ul>
+      </nav>
 
-
-  <title>Cambridge Gig Guide</title>
-  <% if (!currentUser) { %>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/register">Register</a></li>
-  <% } else { %>
-    <li> Signed in as: <%= currentUser.name %></li>
-    <li><a href="/logout">Logout</a></li>
-  <% } %>
 </head>
 <body>
   

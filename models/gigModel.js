@@ -1,8 +1,7 @@
+
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const moment = require('moment');
-const User = require('./userModel');
-
 
 const gigSchema = new mongoose.Schema({
   name: {
@@ -40,14 +39,14 @@ const gigSchema = new mongoose.Schema({
     //required: [true, 'A gig must have an image']
   },
   imageId: String,
+  website: String,
   facebook: String,
   twitter: String,
   instagram: String,
   youtube: String,
-  youtubeVideo: String,
-  spotifyPlayer: String,
+  youtubeVideoID: String,
+  spotify: String,
   bandcamp: String,
-  bandcampPlayer: String,
   description: {
     type: String,
     required: [true, 'A gig must have a description']
@@ -63,7 +62,6 @@ const gigSchema = new mongoose.Schema({
     },
     username: String,
     role: String,
-    photo: String
   }
 });
 
@@ -86,5 +84,39 @@ gigSchema.pre('save', function (next) {
 });
 
 const Gig = mongoose.model('Gig', gigSchema);
+
+gigSchema.gigQuery = function(uniqueOperations) {
+  return new Promise(async function(resolve, reject) {
+    let aggOperations = uniqueOperations.concat([
+      {$lookup: {from: "users", localField: "author", foreignField: "_id", as: "authorDocument"}},
+      {$project: {
+        name: 1,
+        nameForUrl: 1,
+        venue: 1,
+        image: 1,
+        date: 1,
+        dateAdded: 1,
+        author: {$arrayElemAt: ['$authorDocument', 0]}
+      }}
+    ]);
+    let gigs = await gigsCollection.aggregate(aggOperations).toArray(); // Doesn't work    
+
+    // clean up author property in each post object
+    gigs = gigs.map(function(gig) {
+      gig.author = {
+        username: gig.author.username,
+      };
+      return gig;
+    });
+    resolve(gigs);
+  });
+};
+
+Gig.findByAuthorId = function(authorId) {
+  return gigSchema.gigQuery([
+    {$match: {author: authorId}},
+    {$sort: {dateAdded: -1}}
+  ]);
+};
 
 module.exports = Gig;

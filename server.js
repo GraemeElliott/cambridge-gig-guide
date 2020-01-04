@@ -1,3 +1,4 @@
+const {MongoClient} = require('mongodb');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
@@ -12,14 +13,14 @@ const app = require('./app');
 
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
 
-mongoose.connect(DB, {
+const db = mongoose.connect(DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
 }).then(() => console.log ("DB connection successful"));
 
-const port = process.env.PORT || 5500;
+const port = process.env.PORT || 3000;
 const server = app.listen (port, () => {
   console.log(`App running on port ${port}...`);
 });
@@ -31,3 +32,5 @@ process.on ('unhandledRejection', (error) => {
     process.exit(1);
   });
 });
+
+const client = new MongoClient(DB);

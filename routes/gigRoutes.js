@@ -8,7 +8,12 @@ const router = express.Router();
 router
   .route('/')
   .get(gigController.getAllGigs)
-  .post(authenticationController.isLoggedIn, upload.single('image'),gigController.createGig);
+  .post(
+    authenticationController.
+    isLoggedIn, 
+    upload.single('image'),
+    gigController.createGig
+    );
 
 router
   .route('/new')
@@ -17,7 +22,11 @@ router
 router
   .route('/:id')
   .get(gigController.getGig)
-  .put(authenticationController.checkGigOwnership, upload.single('image'),gigController.updateGig)
+  .put(
+    authenticationController.checkGigOwnership, 
+    upload.single('image'), 
+    gigController.updateGig
+    )
   .delete(authenticationController.checkGigOwnership, gigController.deleteGig);
 
 router

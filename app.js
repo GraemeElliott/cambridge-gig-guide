@@ -1,10 +1,10 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       AppError = require('./utilities/appError'),
+      errorHandler = require('./controllers/errorController'),
       passport = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       methodOverride = require('method-override'),
-      flatpickr = require("flatpickr"),
 
       User = require('./models/userModel'),
       
@@ -54,7 +54,9 @@ app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
-// ROUTES END
+// ROUTES END 
+
+app.use(errorHandler);
 
 module.exports = app;
 
