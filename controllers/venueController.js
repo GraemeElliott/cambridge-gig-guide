@@ -2,6 +2,7 @@
 const { cloudinary, upload } = require("../models/cloudinary");
 
 const Venue = require('../models/venueModel');
+const Gig = require('../models/gigModel')
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
@@ -16,11 +17,14 @@ exports.getAllVenues = catchAsync(async (req, res, next) => {
 });
 
 exports.getVenue = catchAsync(async (req, res, next) => {
-  const venue = await Venue.findOne({ nameForUrl: req.params.id }, (error, venuePage) => {
+  const venue = await Venue.findOne({ nameForUrl: req.params.id }, (error, venue) => {
     if (error) {
       console.log(error);
     } else {
-      res.render("venues/show-venue", { venue: venuePage });
+      Gig.find().where('venueForUrl').equals(venue.nameForUrl).exec(function(err, gigs) {
+        console.log(gigs)
+      res.render("venues/show-venue", { venue: venue, gigs: gigs });
+      })
     }
   });
 });

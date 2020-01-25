@@ -13,6 +13,24 @@
         <form action="/venues/<%= venue.nameForUrl %>?_method=DELETE" method="POST">
             <button>Delete</button>
         </form>
+        
     </div>
+
+    <div>
+        <% gigs.forEach((gig) => { %>
+          <div>
+            <%= gig.name %>
+          </div>
+          <div>
+            <%= gig.supports %>
+          </div>
+          <div>
+            <a href='/gigs/<%= gig.nameForUrl %>'>Link to gig page</a>
+          </div>
+          <div>
+            Submitted by: <a href='/users/<%= gig.author.username %>'><%= gig.author.username %></a>
+          </div>
+        <% }) %>
+      </div>
 
 <% include ../partials/_footer %>
