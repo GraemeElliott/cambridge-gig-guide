@@ -1,13 +1,12 @@
 const express = require('express');
 const authenticationController = require('../controllers/authenticationController');
 const passport = require('passport');
-const userController = require('../controllers/userController');
 
 const router = express.Router();
 
 router
   .route('/register')
-  .get(authenticationController.restrictTo('admin'), authenticationController.registerForm)
+  .get(authenticationController.registerForm)
   .post(authenticationController.isLoggedIn, authenticationController.register);
 
 router
@@ -20,7 +19,7 @@ router
 .get(authenticationController.logout);
 
 router
-.route('/profile/:username')
-.get(userController.ifUserExists, userController.profilePage);
+.route('/users/:id')
+.get(authenticationController.isLoggedIn, authenticationController.userProfile);
 
 module.exports = router

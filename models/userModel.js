@@ -3,7 +3,11 @@ const validator = require('validator');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema ({
-  name: {
+  firstName: {
+    type: String,
+    required: [true, 'Please provide your name']
+  },
+  lastName: {
     type: String,
     required: [true, 'Please provide your name']
   },
@@ -16,7 +20,7 @@ const userSchema = new mongoose.Schema ({
   },
   username: {
     type: String,
-    required: [true, 'Please provide a valid username'],
+    required: [true, 'Please provide an email address'],
     unique: true,
     lowercase: true,
   },

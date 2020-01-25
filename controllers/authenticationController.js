@@ -12,7 +12,8 @@ exports.registerForm = async (req, res) => {
 
 exports.register = catchAsync(async (req, res, next) => {
   var newUser = new User(
-    {name: req.body.name, 
+    {firstName: req.body.firstName,
+    lastName: req.body.lastName, 
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
@@ -52,8 +53,22 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
   res.redirect('/login');
 });
 
-// CHECK OWNERSHIP
+// USER PROFILE
+exports.userProfile = catchAsync(async (req, res) => {
+  User.findOne({ username: req.params.id }, function (err, foundUser) {
+    if (err) {
+      console.log(err)
+      res.redirect('/');
+    }
+    Gig.find().where('author.id').equals(foundUser._id).exec(function(err, gigs) {
+      console.log(gigs)
+      res.render('users/user-profile', {user: foundUser, gigs: gigs})
+    });
+    }
+  )
+});
 
+// CHECK OWNERSHIP
 exports.checkGigOwnership = catchAsync(async (req, res, next) => {
   if (req.isAuthenticated()) {
     await Gig.findOne({ nameForUrl: req.params.id }, 
@@ -91,12 +106,3 @@ exports.checkVenueOwnership = catchAsync(async (req, res, next) => {
     res.redirect('back');
   };
 });
-
-exports.restrictTo = (...roles) => {
-  return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      return next(new AppError('You do not have permission to perform this action', 403));
-    }
-    next();
-  };
-};

@@ -2,7 +2,6 @@
 const { cloudinary, upload } = require("../models/cloudinary");
 
 const Gig = require('../models/gigModel');
-const User = require('../models/userModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
@@ -18,8 +17,8 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
 
 exports.getGig = catchAsync(async (req, res, next) => {
   const gig = await Gig.findOne({ nameForUrl: req.params.id }, (error, gigPage) => {
-    if (!gigPage) {
-      return next (new AppError('There is no gig with that name', 404))
+    if (error) {
+      console.log(error);
     } else {
       res.render("gigs/show-gig", { gig: gigPage });
     }
@@ -42,20 +41,21 @@ exports.createGig = async (req, res) => {
     let date = req.body.date;
     let ticketsUrl = req.body.ticketsUrl;
     let price = req.body.price;
-    let website = req.body.website;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
     let youtube = req.body.youtube;
-    let youtubeVideoID = req.body.youtubeVideoID;
-    let spotify = req.body.spotify;
+    let youtubeVideo = req.body.youtubeVideo;
+    let spotifyPlayer = req.body.spotifyPlayer;
     let bandcamp = req.body.bandcamp;
+    let bandcampPlayer = req.body.bandcampPlayer;
     let description = req.body.description;
     let dateAdded = req.body.dateAdded;
     let author = {
       id: req.user._id,
       username: req.user.username,
       role: req.user.role,
+      photo: req.user.photo,
     };
 
     // upload image to cloudinary and set resulting url to image variable
@@ -76,14 +76,14 @@ exports.createGig = async (req, res) => {
       date: date,
       ticketsUrl: ticketsUrl,
       price: price,
-      website: website,
       facebook: facebook,
       twitter: twitter,
       instagram: instagram,
       youtube: youtube,
-      youtubeVideoID: youtubeVideoID,
-      spotify: spotify,
+      youtubeVideo: youtubeVideo,
+      spotifyPlayer: spotifyPlayer,
       bandcamp: bandcamp,
+      bandcampPlayer: bandcampPlayer,
       description: description,
       dateAdded: dateAdded
     };
@@ -133,14 +133,14 @@ exports.updateGig = async (req, res) => {
         gig.date = req.body.gig.date;
         gig.ticketsUrl = req.body.gig.ticketsUrl;
         gig.price = req.body.gig.price;
-        gig.website = req.body.gig.website;
         gig.facebook = req.body.gig.facebook;
         gig.twitter = req.body.gig.twitter;
         gig.instagram = req.body.gig.instagram;
         gig.youtube = req.body.gig.youtube;
-        gig.youtubeVideoID = req.body.gig.youtubeVideoID;
-        gig.spotify = req.body.gig.spotify;
+        gig.youtubeVideo = req.body.gig.youtubeVideo;
+        gig.spotifyPlayer = req.body.gig.spotifyPlayer;
         gig.bandcamp = req.body.gig.bandcamp;
+        gig.bandcampPlayer = req.body.gig.bandcampPlayer;
         gig.description = req.body.gig.description;
         gig.save();
         res.redirect('/gigs/');
@@ -164,3 +164,4 @@ exports.deleteGig = catchAsync(async (req, res) => {
     }
   )
 });
+

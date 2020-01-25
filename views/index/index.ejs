@@ -12,6 +12,9 @@
   <div>
     <a href='/gigs/<%= gig.nameForUrl %>'>Link to gig page</a>
   </div>
+  <div>
+    Submitted by: <a href='/users/<%= gig.author.username %>'><%= gig.author.username %></a>
+  </div>
 <% }) %>
 
 <p> All Gigs Page </p>

@@ -35,7 +35,6 @@ exports.createVenue = async (req, res) => {
   try {
     let name = req.body.name;
     let nameForUrl = req.body.nameForUrl;
-    let website = req.body.website;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
@@ -55,7 +54,6 @@ exports.createVenue = async (req, res) => {
     let newVenue = {
       name: name,
       nameForUrl: nameForUrl,
-      website: website,
       image: image,
       facebook: facebook,
       twitter: twitter,
