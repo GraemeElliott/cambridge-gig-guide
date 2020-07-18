@@ -5,23 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="../../assets/styles/styles.css">
 
-  <link rel="shortcut icon" href="about:blank">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   <div class="page-wrapper">
-      <div class="nav-wrapper">
-       <nav class="navbar">
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Bluestar_%28bus_company%29_logo.svg/1280px-Bluestar_%28bus_company%29_logo.svg.png" alt="Company Logo">
-          <ul>
-              <li class="nav-item"><a href="#">Home</a></li>
-              <li class="nav-item"><a href="#">Gigs</a></li>
-              <li class="nav-item"><a href="#">Venues</a></li>
-              <li class="nav-item"><a href="#">Contact Us</a></li>
-              <li class="nav-item"><a href="/login">Promoter/Venue Login</a></li>
+    <nav class="navbar">
+      <div class="logo"><img src="/assets/images/cgg-logo-lg.png" alt="Cambridge Gig Guide Logo" class="logo"></div>
+      <ul class="navbar-links">
+        <li class="nav-item nav-gigs"><a href="/gigs">Gig Listings</a></li>
+        <li class="nav-item nav-venues"><a href="#">Venues</a></li>
+        <li class="nav-item nav-contact"><a href="#">Contact Us</a></li>
+      </ul>
+          <ul class="sm-icons">
+            <li class="nav-item nav-social">
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+            </li>
+          </ul>
+      <span class="hamburger" id="hamburger">
+        <i class="fa fa-bars" onclick="openNav()"></i>
+      </span>
+
+      <div class="nav-modal overlay" id="nav-modal">
+
+          <div class="nav-modal-header">
+            <div class="logo logo-modal"><img src="/assets/images/cgg-logo-lg.png" alt="Cambridge Gig Guide Logo" class="logo"></div>
+            <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()"><i class="fas fa-times" onclick="closeModal()"></i></a>
+          </div>
+
+          <div class="nav-modal-content">
+            <ul class="nav-modal-links">
+              <li class="nav-item nav-item-cont-modal nav-gigs"><a href="/gigs">Gig Listings</a></li>
+              <li class="nav-item nav-item-cont-modal nav-venues"><a href="#">Venues</a></li>
+              <li class="nav-item nav-item-cont-modal nav-contact"><a href="#">Contact Us</a></li>
             </ul>
-      </nav>
+          </div>
+          
+          <div class="nav-modal-sm">
+            <ul class="modal-sm-icons">
+              <li class="nav-item nav-social">
+                <i class="fab fa-twitter fa-twitter-modal"></i>
+                <i class="fab fa-instagram fa-twitter-modal"></i>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="nav-modal-footer">
+            <div class="nav-modal-pro-ven"><a href="#">Promoter/Venue Login</a></div>
+            
+          </div>
+
+        </div>
+
+      </div>  
+      
+    </nav>
 
 </head>
 <body>
