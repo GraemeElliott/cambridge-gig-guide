@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Page Set-up */
+.page-wrapper {
+  width: auto;
+  height: auto;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: grid;
+}
+/* Page Set-up End */
+
+/* Navbar */
+nav {
+  grid-area: navbar;
+  grid-column-start: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  height: 8rem;
+  width: auto;
+  margin-right: auto;
+}
+
+.nav-item, .nav-item a {
+  text-decoration: none;
+  list-style: none;
+}
+
+.navbar-links li {
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+.navbar-links li a, .sm-icons i {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.navbar-links li a:hover {
+  text-decoration: solid 2px underline;
+}
+
+.sm-icons {
+  margin-left: 5rem;
+}
+
+.sm-icons i {
+  padding: 0 0.5rem;
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-modal {
+  display: none;
+}
+/* Navbar End */
+
+/* -- Tablets -- */
+
+/* -- Large Tablets -- */
+
+@media screen and (max-width: 968px) {
+
+  /* Navbar Start */  
+  .logo {
+    height: 4rem;
+  }
+
+  .navbar-links li a,
+  .sm-icons i {
+    font-size: 1.0rem;
+  }
+  /* Navbar End */ 
+}
+
+/* -- Small Tablets -- */
+
+@media screen and (max-width: 706px) {
+
+  /* Navbar Start */  
+  .logo {
+    height: 6rem;
+  }
+
+  .navbar-links, .sm-icons {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline;
+  }
+
+  .hamburger i {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #000;
+  }
+  /* Navbar End */ 
+
+  /* Modal Start */
+  .overlay {
+    display: grid;
+    position: fixed;
+    z-index: 1;
+    height: 0%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: #000000;
+    grid-auto-rows: fit-content(1rem);
+    transition: 1.0s;
+    -webkit-transition: 1.0s;
+    -moz-transition: 1.0s;
+  }
+
+  .nav-modal-header {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    justify-content: flex-end;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .logo-modal {
+    filter: brightness(0) invert(1);
+    height: 6rem;
+  }
+
+  .fa-times {
+    margin-right: 2rem;
+    margin-top: 2rem;
+    font-size: 1.75rem;
+    color: #ffffff;
+  }
+
+  .nav-modal-content,
+  .nav-modal-sm,
+  .nav-modal-footer {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-modal-links a,
+  .nav-modal-footer a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  .nav-item-cont-modal,
+  .nav-modal-pro-ven {
+    border: solid 2px #ffffff;
+    box-sizing: border-box;
+    padding: 0.3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .nav-item-cont-modal {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .nav-item-social-modal {
+    display: inline-block;
+    align-items: center;
+    
+  }
+
+  .modal-sm-icons {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center'
+  }
+
+  .modal-sm-icons li {
+    float: left;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .modal-sm-icons i {
+    font-size: 2rem;
+  }
+
+  .nav-modal-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+   /* Modal End */
+}
+
+/* -- Mobiles -- */
+
+@media screen and (max-width: 454px) {
+
+  /* Navbar Start */  
+  .logo {
+    height: 4rem;
+  }
+  /* Navbar End */
+
+  /* Modal Start */
+  .logo-modal {
+    height: 4rem;
+  }
+
+  .fa-times {
+    margin-top: 1rem;
+  }
+
+  .nav-modal-links a,
+  .nav-modal-footer a {
+    font-size: 1.5rem;
+  }
+
+  .nav-item-cont-modal {
+    margin-top: 2rem;
+  }
+
+  .nav-item-social-modal i {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+   /* Modal End */
+}
+
+/* -- Mobiles -- */
+
+
+
+
+
+
+
+
