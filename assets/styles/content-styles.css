@@ -1,0 +1,176 @@
+/* Spotlight */
+
+.spotlight {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    flex-direction: row;
+    margin-bottom: 5rem;
+}
+
+.spotlight-card {
+    border: solid 2px #000000;
+    height: 100%;
+    width: 160%;
+    margin-right: 2rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.gig-name {
+    font-weight: 400;
+}
+
+.gig-name-card {
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.gig-date {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.monthly-update h1 {
+    font-weight: 400;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    
+}
+
+.monthly-update-text {
+    font-size: 1.1rem;
+}
+
+/* Spotlight End */
+
+/* Gig Listings */
+
+.gig-listings-heading {
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Carousel */
+
+.gig-grid-x4 {
+    margin-bottom: 3rem;
+}
+
+.gig-card {
+    border: solid 2px #000000;
+    height: 100%;
+    opacity: 0.4;
+    transition: All 1.20s ease;
+}
+
+.gig-card:hover {
+    opacity: 1.0;
+    transition: All 1.20s ease;
+}
+
+#slick-slide-control00 {
+    visibility: hidden;
+}
+
+.slick-prev:before, .slick-next:before {
+    color:#BFBFBF !important;
+}
+
+.slick-track{
+    display: flex !important;
+}
+
+.slick-slide {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: inherit !important;
+}
+
+.slick-current {
+    opacity: 1.0;   
+    
+}
+
+/* Gig Listings Panel */
+
+.column-left {
+    float: left;
+    width: 48%;
+    margin-right: 2rem;
+}
+  
+.column-right {
+    float: left;
+    width: 48%;
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.gig-description {
+    white-space: pre-wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 12;
+    -webkit-box-orient: vertical;  
+}
+
+.newly-released-gigs {
+    margin-bottom: 2rem;
+}
+
+.button {
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border: 1px solid black;
+}
+
+.btn-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1223px) {
+    .spotlight-card {
+        display: none;
+    }
+
+    .content-wrapper {
+        max-width: 800px;
+        margin: auto;
+    }
+}
