@@ -60,20 +60,9 @@
 
 /* Carousel */
 
-.gig-grid-x4 {
-    margin-bottom: 3rem;
-}
-
 .gig-card {
     border: solid 2px #000000;
     height: 100%;
-    opacity: 0.4;
-    transition: All 1.20s ease;
-}
-
-.gig-card:hover {
-    opacity: 1.0;
-    transition: All 1.20s ease;
 }
 
 #slick-slide-control00 {
@@ -86,6 +75,7 @@
 
 .slick-track{
     display: flex !important;
+    margin-bottom: 1rem;
 }
 
 .slick-slide {
@@ -95,8 +85,11 @@
 }
 
 .slick-current {
-    opacity: 1.0;   
-    
+    opacity: 1.0;      
+}
+
+.slick-slider {
+    margin-bottom: 2rem;
 }
 
 /* Gig Listings Panel */
@@ -111,6 +104,10 @@
     float: left;
     width: 48%;
 }
+
+.column-right .gig-date {
+    margin-bottom: 1rem;
+}
   
 .row:after {
     content: "";
@@ -120,6 +117,7 @@
 
 .gig-description {
     white-space: pre-wrap;
+    white-space: pre-line;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 12;
@@ -127,7 +125,7 @@
 }
 
 .newly-released-gigs {
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 .button {
@@ -135,6 +133,13 @@
     font-size: 1rem;
     padding: 0.5rem 2rem;
     border: 1px solid black;
+    background: #ffffff;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .btn-element {

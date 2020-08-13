@@ -35,9 +35,9 @@
     </section>
 
     <section class="newly-released-gigs">
-      <h2 class="gig-listings-heading"> Newly Released </h2>
+      <h2 class="gig-listings-heading"> Newly Released/Announced </h2>
 
-      <div class="gig-grid-x4">
+      <div class="gig-grid-nr">
         <% for (var gig of newlyReleasedGigs) { %>
           <div class="gig-card">
             <img class="img-spotlight" src="<%= gig.image%>">
@@ -48,17 +48,17 @@
         <% } %>
       </div>
 
-      <div class="gig-panel">
+      <div class="gig-panel-nr">
         <% for (var gig of newlyReleasedGigs) { %>
           <div class="row">
             <div class="column-left">
               <img class="img-spotlight" src="<%= gig.image%>">
             </div>
             <div class="column-right">
-              <div class="gig-name card-text"> <%= gig.name %> </div>
-              <div class="gig-venue card-text"> <%= gig.venue %> </div>
-              <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-              <div class="gig-description card-text"> <%= gig.description %> </div>
+              <div class="gig-name"> <%= gig.name %> </div>
+              <div class="gig-venue"> <%= gig.venue %> </div>
+              <div class="gig-date"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+              <div class="gig-description"> <%= gig.description %> </div>
           </div>
             </div>
         <% } %>
@@ -68,7 +68,7 @@
     <section class="upcomming-gigs">
       <h2 class="gig-listings-heading"> Upcomming Gigs </h2>
 
-      <div class="gig-grid-x4">
+      <div class="gig-grid-ug">
         <% for (var gig of upcommingGigs) { %>
           <div class="gig-card">
             <img class="img-spotlight" src="<%= gig.image%>">
@@ -79,24 +79,24 @@
         <% } %>
       </div>
 
-      <div class="gig-panel">
+      <div class="gig-panel-ug">
         <% for (var gig of upcommingGigs) { %>
           <div class="row">
             <div class="column-left">
               <img class="img-spotlight" src="<%= gig.image%>">
             </div>
             <div class="column-right">
-              <div class="gig-name card-text"> <%= gig.name %> </div>
-              <div class="gig-venue card-text"> <%= gig.venue %> </div>
-              <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-              <div class="gig-description card-text"> <%= gig.description %> </div>
+              <div class="gig-name"> <%= gig.name %> </div>
+              <div class="gig-venue"> <%= gig.venue %> </div>
+              <div class="gig-date"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+              <div class="gig-description"> <%= gig.description %> </div>
           </div>
             </div>
         <% } %>
       </div>
 
       <div class="btn-element">
-        <span class="view-more button">View More</span>
+        <button class="view-more button">View More</button>
       </div>
     </section>
 
