@@ -6,7 +6,7 @@
     display: -moz-flex;
     display: -ms-flex;
     flex-direction: row;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .spotlight-card {
@@ -36,7 +36,6 @@
 }
 
 .monthly-update h1 {
-    font-weight: 400;
     margin-top: -1rem;
     margin-bottom: 1rem;
     
@@ -51,7 +50,6 @@
 /* Gig Listings */
 
 .gig-listings-heading {
-    font-weight: 500;
     text-transform: uppercase;
     text-align: center;
     position: relative;
@@ -75,20 +73,20 @@
 
 .slick-track{
     display: flex !important;
-    margin-bottom: 1rem;
 }
 
 .slick-slide {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
     height: inherit !important;
 }
 
 .slick-current {
-    opacity: 1.0;      
+    opacity: 1.0;  
 }
 
 .slick-slider {
+    height: 100%;
     margin-bottom: 2rem;
 }
 
@@ -120,62 +118,86 @@
     white-space: pre-line;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 12;
-    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
 }
 
-.newly-released-gigs {
-    margin-bottom: 5rem;
-}
+/* Tablets */
 
-.button {
-    text-transform: uppercase;
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    border: 1px solid black;
-    background: #ffffff;
-}
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 2rem;
+    }
 
-.button:hover {
-    cursor: pointer;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.btn-element {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 1223px) {
-    .spotlight-card {
+    .logo {
+        height: 6rem;
+      }
+    
+    .navbar-links, .sm-icons {
         display: none;
     }
 
-    .content-wrapper {
-        max-width: 800px;
+    .hamburger {
+        display: inline;
+    }
+
+    .hamburger i {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #000;
+    }
+
+    .spotlight {
+        flex-direction: column-reverse;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    .spotlight-card {
+        width: 100%;
+    }
+
+    .monthly-update-heading {
+        text-align: center;
+    }
+
+    .monthly-update-text {
+        margin-bottom: 2rem;
+    }
+
+    .column-left {
+        display: none;
+    }
+
+    .column-right {
+        width: 100%;
         margin: auto;
     }
+
+    .newly-released-gigs {
+        margin-bottom: 3rem;
+    }
+    
+    .upcomming-gigs {
+        margin-bottom: 3rem;
+    }
+    
+    .upcomming-gigs .gig-description {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Mobiles */
+
+@media screen and (max-width: 800px) {
+    .pro-ven-btn-footer {
+        display: none;
+    }
+
+    .footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+
 }

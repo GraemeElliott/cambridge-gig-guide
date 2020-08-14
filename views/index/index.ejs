@@ -20,7 +20,7 @@
         </div>
 
         <section class="monthly-update">
-            <h1><%= moment().format('MMMM YYYY') %> - News and what's comming up</h1>
+            <h1 class="monthly-update-heading"><%= moment().format('MMMM YYYY') %> - News and what's comming up</h1>
             <div class="monthly-update-text">
                 Skate ipsum dolor sit amet, invert Ray Underhill lip coffin full-cab durometer. Front foot impossible Kevin Harris soul skate kick-nose tic-tac. Danny Way finger flip indy grab nose slide fastplant backside. Fakie risers quarter pipe half-cab grab. Hand rail cess slide handplant skate or die street. Stoked method air skate key birdie manual. Quarter pipe full-cab lip hurricane tail. Baseplate China Banks crail slide hospital flip tuna-flip mini ramp. Nose blunt chicken wing goofy footed 1080 rad Venice.
                 <br>
@@ -35,7 +35,7 @@
     </section>
 
     <section class="newly-released-gigs">
-      <h2 class="gig-listings-heading"> Newly Released/Announced </h2>
+      <h1 class="gig-listings-heading"> Newly Announced/Released </h1>
 
       <div class="gig-grid-nr">
         <% for (var gig of newlyReleasedGigs) { %>
@@ -66,7 +66,7 @@
     </section>
 
     <section class="upcomming-gigs">
-      <h2 class="gig-listings-heading"> Upcomming Gigs </h2>
+      <h1 class="gig-listings-heading"> Upcomming Gigs </h1>
 
       <div class="gig-grid-ug">
         <% for (var gig of upcommingGigs) { %>
@@ -95,14 +95,10 @@
         <% } %>
       </div>
 
-      <div class="btn-element">
-        <button class="view-more button">View More</button>
+      <div class="btn-div">
+        <button class="view-more button button-light">View More</button>
       </div>
     </section>
-
-
-
-
   </div>
 
 

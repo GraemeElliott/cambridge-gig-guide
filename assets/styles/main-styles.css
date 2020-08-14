@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border: 1px solid black;
+}
+
+.button-light {
+  background-color: #ffffff;
+}
+
+.button-light:hover {
+  cursor: pointer;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button-dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button-dark:hover {
+  cursor: pointer;
+}
+
+/* Page Set-up */
+.page-wrapper {
+  height: auto;
+  margin: 0 auto;
+  max-width: 1160px;
+}
+/* Page Set-up End */
+
+/* Navbar */
+nav {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  height: 8rem;
+  margin-right: auto;
+}
+
+.nav-item, .nav-item a {
+  text-decoration: none;
+  list-style: none;
+}
+
+.navbar-links li {
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+.navbar-links li a, .sm-icons i {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.navbar-links li a:hover {
+  text-decoration: solid 2px underline;
+}
+
+.sm-icons {
+  margin-left: 5rem;
+}
+
+.fa-instagram-nav {
+  margin-left: 1rem;
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-modal {
+  display: none;
+}
+/* Navbar End */
+
+/* Footer Start */
+
+.footer {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pro-ven-btn-footer {
+  margin-left: auto;
+}
+
+.heart {
+  color: #CC0000;
+  font-size: 1.2rem;
+}
+
+.do-text {
+  font-weight: 400;
+}
+
+.footer-sm-icon {
+  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 1224px) {
+  .page-wrapper {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+}

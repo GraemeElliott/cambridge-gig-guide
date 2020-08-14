@@ -33,17 +33,21 @@ $(document).ready(function(){
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 970,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 1,
+          infinite: true,
+          centerMode: false,
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          infinite: true,
+          centerMode: false,
         }
       }
     ]
@@ -78,17 +82,21 @@ $('.gig-grid-ug').slick({
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 970,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToScroll: 1,
+        infinite: true,
+        centerMode: false,
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 600,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        infinite: true,
+        centerMode: false,
       }
     }
   ]
