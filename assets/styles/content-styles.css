@@ -125,28 +125,6 @@
 /* Tablets */
 
 @media screen and (max-width: 1000px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .logo {
-        height: 6rem;
-      }
-    
-    .navbar-links, .sm-icons {
-        display: none;
-    }
-
-    .hamburger {
-        display: inline;
-    }
-
-    .hamburger i {
-        text-align: center;
-        font-size: 1.5rem;
-        color: #000;
-    }
-
     .spotlight {
         flex-direction: column-reverse;
         margin: auto;
@@ -187,17 +165,4 @@
     }
 }
 
-/* Mobiles */
 
-@media screen and (max-width: 800px) {
-    .pro-ven-btn-footer {
-        display: none;
-    }
-
-    .footer {
-        text-align: center;
-        justify-content: center;
-    }
-
-
-}

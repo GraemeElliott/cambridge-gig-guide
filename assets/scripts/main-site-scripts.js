@@ -1,15 +1,14 @@
 //Modal Script
-
-function openNav() {
-  document.getElementById("nav-modal").style = "height:100%; position: fixed; overflow: hidden;";
+function openModal() {
+  document.getElementById("nav-modal").style = "height: 100%; position: fixed;";
 }
 
-function closeNav() {
+function closeModal() {
   document.getElementById("nav-modal").style.height = "0%";
 }
 
 
-
+//Carousel Scrips
 $(document).ready(function(){
   $('.gig-grid-nr').slick({
     dots: false,

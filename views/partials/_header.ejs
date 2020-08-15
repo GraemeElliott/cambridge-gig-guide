@@ -36,14 +36,14 @@
             </li>
           </ul>
       <span class="hamburger" id="hamburger">
-        <i class="fa fa-bars" onclick="openNav()"></i>
+        <i class="fa fa-bars" onclick="openModal()"></i>
       </span>
 
       <div class="nav-modal overlay" id="nav-modal">
 
           <div class="nav-modal-header">
             <div class="logo logo-modal"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo" class="logo"></div>
-            <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+            <a href="javascript:void(0)" class="closeBtn" onclick="closeModal()"><i class="fas fa-times"></i></a>
           </div>
 
           <div class="nav-modal-content">
@@ -62,7 +62,7 @@
             </ul>
           </div>
   
-          <div class="nav-modal-footer">
+          <div class="nav-modal-footer" id="nav-modal-footer">
             <div class="nav-modal-pro-ven"><a href="#">Promoter/Venue Login</a></div>
           </div>
 
