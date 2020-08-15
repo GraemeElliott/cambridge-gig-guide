@@ -7,7 +7,6 @@ function closeModal() {
   document.getElementById("nav-modal").style.height = "0%";
 }
 
-
 //Carousel Scrips
 $(document).ready(function(){
   $('.gig-grid-nr').slick({
@@ -18,8 +17,6 @@ $(document).ready(function(){
     slidesToScroll: 1,
     arrows: true,
     asNavFor: '.gig-panel-nr',
-    centerMode: true,
-    centerPadding: '40px',
     focusOnSelect: true,
 
     responsive: [
@@ -67,8 +64,6 @@ $('.gig-grid-ug').slick({
   slidesToScroll: 1,
   arrows: true,
   asNavFor: '.gig-panel-ug',
-  centerMode: true,
-  centerPadding: '40px',
   focusOnSelect: true,
 
   responsive: [

@@ -5,6 +5,8 @@ const Gig = require('../models/gigModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
+const moment = require("moment");
+const _ = require('underscore')
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -12,7 +14,8 @@ exports.gigForm = async (req, res) => {
 
 exports.getAllGigs = catchAsync(async (req, res, next) => {
   const gigs = await Gig.find();
-  res.render('gigs/all-gigs', {gigs: gigs});
+
+  res.render('gigs/all-gigs', {gigs: gigs, moment: moment, _:_});
 });
 
 exports.getGig = catchAsync(async (req, res, next) => {

@@ -11,7 +11,7 @@ exports.registerForm = async (req, res) => {
 };
 
 exports.register = catchAsync(async (req, res, next) => {
-  var newUser = new User(
+  const newUser = new User(
     {firstName: req.body.firstName,
     lastName: req.body.lastName, 
     username: req.body.username,

@@ -5,7 +5,6 @@ const express = require('express'),
       LocalStrategy = require('passport-local').Strategy,
       methodOverride = require('method-override'),
       flatpickr = require("flatpickr"),
-      moment = require("moment"),
 
       User = require('./models/userModel'),
       
