@@ -6,7 +6,7 @@ const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
 const moment = require("moment");
-const { db } = require("../models/gigModel");
+const { db, count } = require("../models/gigModel");
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -15,7 +15,7 @@ exports.gigForm = async (req, res) => {
 exports.getAllGigs = catchAsync(async (req, res, next) => {
   const gigs = await Gig.find();
 
-  let sortedGigs = gigs.sort((a, b) => {
+  const sortedGigs = gigs.sort((a, b) => {
     return Date.parse(new Date(a.date)) - Date.parse(new Date(b.date));
   });
 

@@ -19,7 +19,7 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
     return Date.parse(new Date(a.date)) - Date.parse(new Date(b.date));
   }).slice (0, 6);
 
-  let newlyReleasedSorted = gigs.sort((a, b) => {
+  const newlyReleasedSorted = gigs.sort((a, b) => {
     return Date.parse(new Date(a.dateAdded)) - Date.parse(new Date(b.dateAdded));
   }).reverse();
 

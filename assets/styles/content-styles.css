@@ -126,13 +126,26 @@
 
 /* Gig Listings */
 
-.gig-listings {
+.gig-listing {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;
-    margin-bottom: 2rem;
-    
+    grid-row-gap: 2rem;
+    margin-bottom: 3rem;
 }
+
+.month-date-heading {
+    margin-bottom: 2rem;
+}
+
+.divider {
+    border: 1px solid #000000;
+    margin-bottom: 1rem;
+}
+
+
+
+
 
 
 

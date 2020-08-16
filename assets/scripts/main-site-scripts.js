@@ -101,12 +101,20 @@ $('.gig-grid-ug').slick({
     }
   ]
 });
-$('.gig-panel-ug').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: '.gig-grid-ug'
+
+  $('.gig-panel-ug').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.gig-grid-ug'
+  });
 });
-});
+
+
+$(".gig-listing").filter(function() {
+  return !$.trim($(this).text());
+}).parent().hide();
+
+
 
