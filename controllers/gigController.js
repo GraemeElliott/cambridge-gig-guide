@@ -6,7 +6,6 @@ const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
 const moment = require("moment");
-const _ = require('underscore')
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
