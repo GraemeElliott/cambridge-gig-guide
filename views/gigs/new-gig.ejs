@@ -1,17 +1,19 @@
 <% include ../partials/_header %>
 
-<h1 class="form-heading">Create a new gig</h1>
-
 <div class="form-wrapper">
+    <div class="form-heading-block">
+        <h1 class="form-heading">Create a new gig</h1>
+    </div>
+
     <form id="form" class="form" action="/gigs" method="POST" enctype="multipart/form-data"> 
 
     <div class="input-field">
         <label for="headliner">Headliner</label>
-        <input type="text" name="name" placeholder="Headliner">
+        <input type="text" name="name">
     </div>
     <div class="input-field">
         <label for="supports">Supports</label>
-        <input type="text" name="supports" placeholder="Supports">
+        <input type="text" name="supports">
     </div>
 
     <div class="input-field">
@@ -36,7 +38,7 @@
 
     <div class="input-field">
         <label for="date">Date</label>
-        <input type="text" id="date" name="date" placeholder="Select a date" >
+        <input type="text" id="date" name="date" required>
     </div>
     <div class="image-selector input-field">     
         <label for="image">Image</label>
@@ -44,47 +46,47 @@
     </div>
     <div class="input-field">
         <label for="tickets-url">Tickets URL</label>
-        <input type="text" name="ticketsUrl" placeholder="Tickets URL">
+        <input type="text" name="ticketsUrl">
     </div>
     <div class="input-field">
         <label for="Price">Price</label>
-        <input type="number" step="0.01" name="price" placeholder="Price">
+        <input type="number" step="0.01" name="price">
     </div>
     <div class="input-field">
         <label for="website-url">Website URL</label>
-        <input type="text" name="website" placeholder="Website URL">
+        <input type="text" name="website" >
     </div>
     <div class="input-field">
         <label for="facebook">Facebook Profile URL</label>
-        <input type="text" name="facebook" placeholder="Facebook Profile URL">
+        <input type="text" name="facebook" >
     </div>
     <div class="input-field">
         <label for="twitter">Twitter Profile URL</label>
-        <input type="text" name="twitter" placeholder="Twitter Profile URL">
+        <input type="text" name="twitter">
     </div>
     <div class="input-field">
         <label for="instagram">Instagram Profile URL</label>
-        <input type="text" name="instagram" placeholder="Instagram Profile URL">
+        <input type="text" name="instagram">
     </div>
     <div class="input-field">
         <label for="youtube">YouTube Profile URL</label>
-        <input type="text" name="youtube" placeholder="YouTube Profile URL">
+        <input type="text" name="youtube">
     </div>
     <div class="input-field">
         <label for="youtubeVideoID">YouTube Video ID</label>
-        <input type="text" name="youtubeVideoID" placeholder="YouTube Video ID">
+        <input type="text" name="youtubeVideoID">
     </div>
     <div class="input-field">
         <label for="spotify">Spotify Profile URL</label>
-        <input type="text" name="spotify" placeholder="Spotify Profile URL">
+        <input type="text" name="spotify">
     </div>
     <div class="input-field">
         <label for="bandcamp">Bandcamp Profile URL</label>
-        <input type="text" name="bandcamp" placeholder="Bandcamp Profile URL">
+        <input type="text" name="bandcamp">
     </div>
     <div class="input-field">
-        <label for="description">Bio</label>
-        <textarea type="text" name="description" placeholder="Bio"></textarea>
+        <label for="description">Band Bio</label>
+        <textarea type="text" name="description"></textarea>
     </div>
 
     <div class="input-field">

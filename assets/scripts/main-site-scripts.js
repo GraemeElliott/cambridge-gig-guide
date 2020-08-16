@@ -1,10 +1,16 @@
+const currentMonth = `moment().format("MMMM") moment().format("YYYY")`;
+
 //Modal Script
 function openModal() {
   document.getElementById("nav-modal").style = "height: 100%; position: fixed;";
+  document.getElementById("nav-modal-footer").style = "transition-property: visibility; transition-delay: 0.95s; visibility: visible";
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   document.getElementById("nav-modal").style.height = "0%";
+  document.getElementById("nav-modal-footer").style = "visibility: hidden"
+  document.body.style.overflow = 'visible';
 }
 
 //Carousel Scrips
@@ -21,7 +27,7 @@ $(document).ready(function(){
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 970,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,

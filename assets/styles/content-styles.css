@@ -47,7 +47,7 @@
 
 /* Spotlight End */
 
-/* Gig Listings */
+/* Index Gig Listings */
 
 .gig-listings-heading {
     text-transform: uppercase;
@@ -90,7 +90,7 @@
     margin-bottom: 2rem;
 }
 
-/* Gig Listings Panel */
+/* Index Gigs Panel */
 
 .column-left {
     float: left;
@@ -121,6 +121,30 @@
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
 }
+
+/* Index Gigs End */
+
+/* Gig Listings */
+
+.gig-listings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 2rem;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Tablets */
 
@@ -164,5 +188,4 @@
         margin-bottom: 0.5rem;
     }
 }
-
 

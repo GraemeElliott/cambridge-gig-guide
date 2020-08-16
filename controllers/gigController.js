@@ -6,6 +6,7 @@ const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
 const moment = require("moment");
+const { db } = require("../models/gigModel");
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -14,7 +15,11 @@ exports.gigForm = async (req, res) => {
 exports.getAllGigs = catchAsync(async (req, res, next) => {
   const gigs = await Gig.find();
 
-  res.render('gigs/all-gigs', {gigs: gigs, moment: moment, _:_});
+  let sortedGigs = gigs.sort((a, b) => {
+    return Date.parse(new Date(a.date)) - Date.parse(new Date(b.date));
+  });
+
+  res.render('gigs/all-gigs', {gigs: gigs, moment: moment, sortedGigs:sortedGigs});
 });
 
 exports.getGig = catchAsync(async (req, res, next) => {
@@ -41,6 +46,7 @@ exports.createGig = async (req, res) => {
     let venue = req.body.venue;
     let venueForUrl = req.body.venueForUrl;
     let date = req.body.date;
+    let dateCalendar = req.body.dateCalendar;
     let ticketsUrl = req.body.ticketsUrl;
     let price = req.body.price;
     let facebook = req.body.facebook;
@@ -76,6 +82,7 @@ exports.createGig = async (req, res) => {
       venue: venue,
       venueForUrl: venueForUrl,
       date: date,
+      dateCalendar: dateCalendar,
       ticketsUrl: ticketsUrl,
       price: price,
       facebook: facebook,
@@ -133,6 +140,7 @@ exports.updateGig = async (req, res) => {
         gig.venue = req.body.gig.venue;
         gig.venueForUrl = req.body.gig.venueForUrl;
         gig.date = req.body.gig.date;
+        gig.dateCalendar = req.body.gig.dateCalendar;
         gig.ticketsUrl = req.body.gig.ticketsUrl;
         gig.price = req.body.gig.price;
         gig.facebook = req.body.gig.facebook;

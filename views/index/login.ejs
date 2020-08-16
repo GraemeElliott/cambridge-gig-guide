@@ -1,16 +1,17 @@
 <% include ../partials/_header %>
 
-<h1 class="form-heading">Login</h1>
-
 <div class="form-wrapper">
+    <div class="form-heading-block">
+        <h1 class="form-heading">Login</h1>
+    </div>
     <form action="/login" method="POST">
         <div class="input-field">
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="username">
+            <input type="text" name="username">
         </div>
         <div class="input-field">
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="password">
         </div>
         <div class="input-field">
             <input type="submit" value="Submit" class="submit-btn">

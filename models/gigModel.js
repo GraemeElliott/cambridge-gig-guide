@@ -27,6 +27,9 @@ const gigSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'A gig must have a date']
   },
+  dateCalendar: {
+    type: String,
+  },
   ticketsUrl: {
     type: String,
     required: [true, 'A gig must have a URL for ticket purchases']
@@ -82,6 +85,12 @@ gigSchema.pre('save', function (next) {
   const gigDate = this.date;
   const bandName = slugify(this.name, { lower: true });
   this.gigId = `${bandName}-${moment(gigDate).format('YYYYMMDD')}`;
+  next();
+});
+
+gigSchema.pre('save', function (next) {
+  const gigDate = this.date;
+  this.dateCalendar = `${moment(gigDate).format('MMMM YYYY')}`;
   next();
 });
 

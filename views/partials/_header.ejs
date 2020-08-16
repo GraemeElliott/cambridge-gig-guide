@@ -8,6 +8,8 @@
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="../../assets/styles/main-styles.css">
@@ -21,8 +23,9 @@
 </head>
 
   <body>
+    
     <nav class="navbar">
-      <div class="logo"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo" class="logo"></div>
+      <div class="logo"><a href="/"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo" class="logo"></a></div>
       <ul class="navbar-links">
         <li class="nav-item nav-gigs"><a href="/gigs">Gig Listings</a></li>
         <li class="nav-item nav-venues"><a href="#">Venues</a></li>
@@ -45,24 +48,26 @@
             <a href="javascript:void(0)" class="closeBtn" onclick="closeModal()"><i class="fas fa-times"></i></a>
           </div>
 
-          <div class="nav-modal-content">
+          <div class="nav-modal-content" id="nav-modal-content">
             <ul class="nav-modal-links">
               <li class="nav-item nav-item-cont-modal nav-gigs"><a href="/gigs">Gig Listings</a></li>
               <li class="nav-item nav-item-cont-modal nav-venues"><a href="#">Venues</a></li>
               <li class="nav-item nav-item-cont-modal nav-contact"><a href="#">Contact Us</a></li>
             </ul>
+
+            <div class="nav-modal-sm">
+              <ul class="modal-sm-icons">
+                <li class="nav-item nav-item-social-modal"><i class="fab fa-twitter fa-twitter-modal"></i></li>
+                <li class="nav-item nav-item-social-modal"><i class="fab fa-instagram fa-instagram-modal"></i></li>
+                <li class="nav-item nav-item-social-modal"><i class="far fa-envelope fa-envelope-modal"></i></li>
+              </ul>
+            </div>
           </div>
           
-          <div class="nav-modal-sm">
-            <ul class="modal-sm-icons">
-              <li class="nav-item nav-item-social-modal"><i class="fab fa-twitter fa-twitter-modal"></i></li>
-              <li class="nav-item nav-item-social-modal"><i class="fab fa-instagram fa-instagram-modal"></i></li>
-              <li class="nav-item nav-item-social-modal"><i class="far fa-envelope fa-envelope-modal"></i></li>
-            </ul>
-          </div>
+          
   
           <div class="nav-modal-footer" id="nav-modal-footer">
-            <div class="nav-modal-pro-ven"><a href="#">Promoter/Venue Login</a></div>
+            <div class="nav-modal-pro-ven"><a href="/login">Promoter/Venue Login</a></div>
           </div>
 
         </div>
