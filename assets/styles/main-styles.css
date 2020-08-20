@@ -51,7 +51,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
 }
 
 button {
@@ -208,11 +207,6 @@ nav {
       font-size: 1.5rem;
       color: #000;
   }
-}
-
-/* Mobiles */
-
-@media screen and (max-width: 1000px) {
 
   /* Modal Start */
   .overlay {

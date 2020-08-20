@@ -4,12 +4,12 @@
 
   <section class="spotlight">
 
-      <div class="spotlight-card">
+      <div class="spotlight-card"><a href="https://cambridge-gig-guide.herokuapp.com/gigs/biffy-clyro">
 
           <% for (var gig of gigs) { %>
             
             <% if (gig.name === 'Biffy Clyro') { %>
-              <img class="img-spotlight" src="<%= gig.image%>">
+              <img class="img-spotlight" src="<%= gig.image %>">
               <div class="gig-name card-text"> <%= gig.name %> </div>
               <div class="gig-venue card-text"> <%= gig.venue %> </div>
               <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
@@ -17,7 +17,7 @@
             <% } %>
           <% } %>
   
-      </div>
+        </a></div>
 
       <section class="monthly-update">
           <h1 class="monthly-update-heading"><%= moment().format('MMMM YYYY') %> - News and what's comming up</h1>
@@ -37,14 +37,14 @@
   <section class="newly-released-gigs">
     <h1 class="gig-listings-heading"> Newly Announced/Released </h1>
 
-    <div class="gig-grid-nr">
+    <div class="gig-grid-nr"> 
       <% for (var gig of newlyReleasedGigs) { %>
-        <div class="gig-card">
+        <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
           <img class="img-spotlight" src="<%= gig.image%>">
           <div class="gig-name gig-name-card card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-        </div>
+        </a></div>
       <% } %>
     </div>
 
@@ -52,7 +52,7 @@
       <% for (var gig of newlyReleasedGigs) { %>
         <div class="row">
           <div class="column-left">
-            <img class="img-spotlight" src="<%= gig.image%>">
+            <a href="/gigs/<%= gig.nameForUrl %>"><img class="img-spotlight" src="<%= gig.image%>"></a>
           </div>
           <div class="column-right">
             <div class="gig-name"> <%= gig.name %> </div>
@@ -70,12 +70,12 @@
 
     <div class="gig-grid-ug">
       <% for (var gig of upcommingGigs) { %>
-        <div class="gig-card">
+        <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
           <img class="img-spotlight" src="<%= gig.image%>">
           <div class="gig-name gig-name-card card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-        </div>
+        </a></div>
       <% } %>
     </div>
 
@@ -83,7 +83,7 @@
       <% for (var gig of upcommingGigs) { %>
         <div class="row">
           <div class="column-left">
-            <img class="img-spotlight" src="<%= gig.image%>">
+            <a href="/gigs/<%= gig.nameForUrl %>"><img class="img-spotlight" src="<%= gig.image%>"></a>
           </div>
           <div class="column-right">
             <div class="gig-name"> <%= gig.name %> </div>
@@ -96,7 +96,7 @@
     </div>
 
     <div class="btn-div">
-      <button class="view-more button button-light">View More Upcomming Gigs</button>
+      <a href="/gigs"><button class="view-more button button-light">View More Upcomming Gigs</button></a>
     </div>
   </section>
 </div>

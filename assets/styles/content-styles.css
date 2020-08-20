@@ -200,5 +200,24 @@
     .upcomming-gigs .gig-description {
         margin-bottom: 0.5rem;
     }
+
+    .gig-listing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
+
+@media screen and (max-width: 750px) {
+    .gig-listing {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gig-listing {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+  }
 

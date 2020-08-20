@@ -113,7 +113,7 @@ $('.gig-grid-ug').slick({
 
 
 $(".gig-listing").filter(function() {
-  return !$.trim($(this).text());
+    return !$.trim($(this).text());
 }).parent().hide();
 
 
