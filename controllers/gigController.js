@@ -27,7 +27,7 @@ exports.getGig = catchAsync(async (req, res, next) => {
     if (error) {
       console.log(error);
     } else {
-      res.render("gigs/show-gig", { gig: gigPage });
+      res.render("gigs/show-gig", { gig: gigPage, moment: moment });
     }
   });
 });
@@ -49,14 +49,13 @@ exports.createGig = async (req, res) => {
     let dateCalendar = req.body.dateCalendar;
     let ticketsUrl = req.body.ticketsUrl;
     let price = req.body.price;
+    let website = req.body.website;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
     let youtube = req.body.youtube;
-    let youtubeVideo = req.body.youtubeVideo;
+    let youtubeVideo = req.body.youtubeVideoID;
     let spotifyPlayer = req.body.spotifyPlayer;
-    let bandcamp = req.body.bandcamp;
-    let bandcampPlayer = req.body.bandcampPlayer;
     let description = req.body.description;
     let dateAdded = req.body.dateAdded;
     let author = {
@@ -85,14 +84,13 @@ exports.createGig = async (req, res) => {
       dateCalendar: dateCalendar,
       ticketsUrl: ticketsUrl,
       price: price,
+      website:website,
       facebook: facebook,
       twitter: twitter,
       instagram: instagram,
       youtube: youtube,
-      youtubeVideo: youtubeVideo,
+      youtubeVideo: youtubeVideoID,
       spotifyPlayer: spotifyPlayer,
-      bandcamp: bandcamp,
-      bandcampPlayer: bandcampPlayer,
       description: description,
       dateAdded: dateAdded
     };
@@ -143,14 +141,13 @@ exports.updateGig = async (req, res) => {
         gig.dateCalendar = req.body.gig.dateCalendar;
         gig.ticketsUrl = req.body.gig.ticketsUrl;
         gig.price = req.body.gig.price;
+        gig.website = req.body.gig.website;
         gig.facebook = req.body.gig.facebook;
         gig.twitter = req.body.gig.twitter;
         gig.instagram = req.body.gig.instagram;
         gig.youtube = req.body.gig.youtube;
-        gig.youtubeVideo = req.body.gig.youtubeVideo;
+        gig.youtubeVideo = req.body.gig.youtubeVideoID;
         gig.spotifyPlayer = req.body.gig.spotifyPlayer;
-        gig.bandcamp = req.body.gig.bandcamp;
-        gig.bandcampPlayer = req.body.gig.bandcampPlayer;
         gig.description = req.body.gig.description;
         gig.save();
         res.redirect('/gigs/');

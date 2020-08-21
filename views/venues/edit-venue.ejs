@@ -1,27 +1,57 @@
 <% include ../partials/_header %>
 
-<h1>Edit <%= venue.name %></h1>
+<div class="form-wrapper">
+    <div class="form-heading-block">
+        <h1 class="form-heading">Edit <%= venue.name %></h1>
+    </div>
 
-<a href="/gigs">Back to all gigs</a>
-   
-   <form id="Form" action="/venues/<%= venue.nameForUrl %>?_method=PUT" method="POST">
+    <form id="form" class="form" action="/venues/<%= venue.nameForUrl %>?_method=PUT" method="POST"> 
 
-    <h2>Event Details</h2>
-   
-        <input type="text" id="name" name="venue[name]" value = "<%= venue.name %>" placeholder="Venue Name" onkeyup="venueNameChange()">
+    <div class="input-field">
+        <label for="venue-name">Venue Name</label>
+        <input type="text" name="venue[name]" value = "<%= venue.name %>" placeholder="Venue Name" onkeyup="venueNameChange()">
+    </div>
 
-        <input id="nameForUrl" type="hidden" name="venue[nameForUrl]" value = "<%= venue.nameForUrl %>" >
+    <div class="image-selector input-field">     
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+    </div>
+    <div class="input-field">
+        <label for="website-url">Website URL</label>
+        <input type="text" name="venue[website]" value = "<%= venue.website %>" placeholder="Venue Website URL">
+    </div>
+    <div class="input-field">
+        <label for="facebook">Facebook Profile URL</label>
+        <input type="text" name="venue[facebook]" value = "<%= venue.facebook %>" placeholder="Venue Facebook Profile">
+    </div>
+    <div class="input-field">
+        <label for="twitter">Twitter Profile URL</label>
+        <input type="text" name="venue[twitter]" value = "<%= venue.twitter %>" placeholder="Venue Twitter Profile">
+    </div>
+    <div class="input-field">
+        <label for="instagram">Instagram Profile URL</label>
+        <input type="text" name="venue[instagram]" value = "<%= venue.instagram %>" placeholder="Venue Instagram Profile">
+    </div>
+    <div class="input-field">
+        <label for="youtube">YouTube Profile URL</label>
+        <input type="text" name="venue[youtube]" value = "<%= venue.youtube %>" placeholder="Venue YouTube Profile">
+    </div>
+    <div class="input-field">
+        <label for="description">Venue Bio</label>
+        <textarea type="text" name="venue[description]"><%= venue.description %></textarea>
+    </div>
 
-        <input type="text" id="facebook" name="venue[facebook]" value = "<%= venue.facebook %>" placeholder="Venue Facebook Profile">
+    <!-- Hidden Fields -->
 
-        <input type="text" id="twitter" name="venue[twitter]" value = "<%= venue.twitter %>" placeholder="Venue Twitter Profile">
+    <input id="nameForUrl" type="hidden" name="venue[nameForUrl]" value = "<%= venue.nameForUrl %>" >
 
-        <input type="text" id="instagram" name="venue[instagram]" value = "<%= venue.instagram %>" placeholder="Venue Instagram Profile">
+    <!-- Hidden Fields END -->
 
-        <textarea type="text" id="description" name="venue[description]"><%= venue.description %></textarea>
-        
-
-    <input type="submit" value="Submit">
-</form>
+    <div class="input-field">
+        <input type="submit" value="Submit" class="submit-btn">
+    </div>
+    
+    </form>
+</div>
 
 <% include ../partials/_footer %>

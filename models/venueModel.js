@@ -8,6 +8,7 @@ const venueSchema = new mongoose.Schema({
     unique: true
   },
   nameForUrl: String,
+  website: String,
   image: String,
   description: {
     type: String,
@@ -16,6 +17,7 @@ const venueSchema = new mongoose.Schema({
   facebook: String,
   twitter: String,
   instagram: String,
+  youtube: String,
   author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,

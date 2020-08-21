@@ -1,24 +1,51 @@
 <% include ../partials/_header %>
 
-<a href="/gigs">Back to all gigs</a>
+<div class="form-wrapper">
+    <div class="form-heading-block">
+        <h1 class="form-heading">Create a new venue</h1>
+    </div>
 
-<h1>Create A New Venue</h1>
-   
-   <form id="Form" action="/venues" method="POST" enctype="multipart/form-data">
+    <form id="form" class="form" action="/venues" method="POST" enctype="multipart/form-data"> 
 
-    <h2>Event Details</h2>
-   
-        <input type="text" name="name" placeholder="Venue Name">
-        <div>
-            <label for="image">Image</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
-        </div>
-        <input type="text" name="facebook" placeholder="Facebook">
-        <input type="text" name="twitter" placeholder="Twitter">
-        <input type="text" name="instagram" placeholder="Instagram">
-        <textarea type="text" name="description" placeholder="Description"></textarea>
+    <div class="input-field">
+        <label for="venue-name">Venue Name</label>
+        <input type="text" name="name">
+    </div>
 
-    <input type="submit" value="Submit">
-</form>
+    <div class="image-selector input-field">     
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+    </div>
+    <div class="input-field">
+        <label for="website-url">Website URL</label>
+        <input type="text" name="website">
+    </div>
+    <div class="input-field">
+        <label for="facebook">Facebook Profile URL</label>
+        <input type="text" name="facebook">
+    </div>
+    <div class="input-field">
+        <label for="twitter">Twitter Profile URL</label>
+        <input type="text" name="twitter">
+    </div>
+    <div class="input-field">
+        <label for="instagram">Instagram Profile URL</label>
+        <input type="text" name="instagram">
+    </div>
+    <div class="input-field">
+        <label for="youtube">YouTube Profile URL</label>
+        <input type="text" name="youtube">
+    </div>
+    <div class="input-field">
+        <label for="description">Venue Bio</label>
+        <textarea type="text" name="description"></textarea>
+    </div>
+
+    <div class="input-field">
+        <input type="submit" value="Submit" class="submit-btn">
+    </div>
+    
+    </form>
+</div>
 
 <% include ../partials/_footer %>

@@ -143,6 +143,58 @@
     margin-bottom: 1rem;
 }
 
+/* Gig Page */
+
+.info-page-heading {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-page-button {
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-page-links {
+    margin-bottom: 2rem;
+    display: flex;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    flex-direction: column;
+}
+
+.info-page-link {
+    align-items: center;
+}
+
+.info-page-icon {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.band-description {
+    margin-bottom: 2rem;
+}
+
+.info-page-description {
+    white-space: pre-wrap;
+    white-space: pre-line;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.youtube-video {
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 

@@ -1,26 +1,79 @@
 <% include ../partials/_header %>
 
-<h1> The Gigs Show Template</h1>
-
-    <div>
-        <h2><%= gig.name %></h2>
-        <% if(currentUser && gig.author.id.equals(currentUser._id)) { %>
-        <a href="/gigs/<%= gig.nameForUrl%>/edit">Edit</a>
-        <form action="/gigs/<%= gig.nameForUrl %>?_method=DELETE" method="POST">
-            <button>Delete</button>
-        </form>
-        <% } %>
-    </div>
-
-    <p><%= gig.description %></p>
-
-    <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
+<div class="gig-image">
     <img src="<%= gig.image%>">
-    <p><%= gig.date %></p>
-    <p><%= gig.venueForUrl %></p>
-    <p><%= gig.dateAdded %></p>
+</div>
+
+<h1 class="gig-listings-heading info-page-heading"><%= gig.name %></h1>
+<h2 class="gig-listings-heading info-page-heading2"><%= gig.supports %></h2>
+<h2 class="gig-listings-heading info-page-heading2"><%= gig.venue %></h2>
+<h2 class="gig-listings-heading info-page-heading2"><%= moment(gig.date).format("dddd Do MMMM YYYY") %></h2>
+
+<button class="info-page-button button-dark"><a href="<%= gig.ticketsUrl %>">Buy Tickets</a></button>
+
+
+
+
+<section class="info-page-links">
+
+    <div class="info-page-link info-page-website">
+        <span>
+            <i class="far fa-window-maximize info-page-icon"></i>
+        </span>
+            <a href=<%= gig.website %> target="_blank">
+                <span><%= gig.website %></span>
+            </a>
+    </div>
+
+    <div class="info-page-link info-page-facebook">
+        <span>
+            <i class="fab fa-facebook-square info-page-icon"></i>
+        </span>
+            <a href=<%= gig.facebook %> target="_blank">
+                <span><%= gig.facebook %></span>
+            </a>
+    </div>
+
+    <div class="info-page-link info-page-twitter">
+        <span>
+            <i class="fab fa-twitter info-page-icon"></i>
+        </span>
+            <a href=<%= gig.twitter %> target="_blank">
+                <span><%= gig.twitter %></span>
+            </a>
+    </div>
+
+    <div class="info-page-link info-page-instagram">
+        <span>
+            <i class="fab fa-instagram info-page-icon"></i>
+        </span>
+            <a href=<%= gig.instagram %> target="_blank">
+                <span><%= gig.instagram %></span>
+            </a>
+    </div>
+
+    <div class="info-page-link info-page-youtube">
+        <span>
+            <i class="fab fa-youtube info-page-icon"></i>
+        </span>
+            <a href=<%= gig.youtube %> target="_blank">
+                <span><%= gig.youtube %></span>
+            </a>
+    </div>
+</section>
+
+<section class="band-description">
+
+    <div class="info-page-description">
+        <p><%= gig.description %></p>
+    </div>
+
+</section>
+
+<div class="youtube-video">
+    <iframe class="youtube-video" width="800" height="450" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
 
 <% include ../partials/_footer %>

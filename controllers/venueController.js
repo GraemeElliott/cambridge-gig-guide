@@ -39,9 +39,11 @@ exports.createVenue = async (req, res) => {
   try {
     let name = req.body.name;
     let nameForUrl = req.body.nameForUrl;
+    let website = req.body.website;
     let facebook = req.body.facebook;
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
+    let youtube = req.body.youtube;
     let description = req.body.description;
     let author = {
       id: req.user._id,
@@ -57,11 +59,13 @@ exports.createVenue = async (req, res) => {
     //get data from form and add to gigs array
     let newVenue = {
       name: name,
+      website:website,
       nameForUrl: nameForUrl,
       image: image,
       facebook: facebook,
       twitter: twitter,
       instagram: instagram,
+      yotube:youtube,
       description: description,
       author: author
     };

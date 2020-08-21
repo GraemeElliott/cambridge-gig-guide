@@ -43,14 +43,13 @@ const gigSchema = new mongoose.Schema({
     //required: [true, 'A gig must have an image']
   },
   imageId: String,
+  website: String,
   facebook: String,
   twitter: String,
   instagram: String,
   youtube: String,
-  youtubeVideo: String,
+  youtubeVideoID: String,
   spotifyPlayer: String,
-  bandcamp: String,
-  bandcampPlayer: String,
   description: {
     type: String,
     required: [true, 'A gig must have a description']
