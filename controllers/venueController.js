@@ -6,6 +6,7 @@ const Gig = require('../models/gigModel')
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const multer = require('multer');
+const moment = require("moment");
 
 exports.venueForm = async (req, res) => {
   res.render('venues/new-venue');
@@ -13,7 +14,12 @@ exports.venueForm = async (req, res) => {
 
 exports.getAllVenues = catchAsync(async (req, res, next) => {
   const venues = await Venue.find();
-  res.render('venues/all-venues', {venues: venues});
+
+  const sortedVenues = venues.sort(function(a, b){
+    return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+})
+
+  res.render('venues/all-venues', {venues: venues, sortedVenues:sortedVenues});
 });
 
 exports.getVenue = catchAsync(async (req, res, next) => {
@@ -22,8 +28,10 @@ exports.getVenue = catchAsync(async (req, res, next) => {
       console.log(error);
     } else {
       Gig.find().where('venueForUrl').equals(venue.nameForUrl).exec(function(err, gigs) {
-        console.log(gigs)
-      res.render("venues/show-venue", { venue: venue, gigs: gigs });
+        const sortedGigs = gigs.sort((a, b) => {
+          return Date.parse(new Date(a.date)) - Date.parse(new Date(b.date));
+        });
+      res.render("venues/show-venue", { venue: venue, moment: moment, gigs: gigs, sortedGigs:sortedGigs });
       })
     }
   });

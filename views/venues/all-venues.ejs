@@ -1,19 +1,11 @@
 <% include ../partials/_header %>
 
-<h1> All Venues Page</h1>
-
-<% venues.forEach((venue) => { %>
-  <div>
-    <%= venue.name %>
+<% for (var venue of sortedVenues) { %>
+  <div class="venues-wrapper">
+    <a href="/venues/<%= venue.nameForUrl %>">
+      <button class="all-venues-venue button-light"><%= venue.name %></button>
+    </a>
   </div>
-  <div>
-    <%= venue.description %>
-  </div>
-  <div>
-    <a href='/venues/<%= venue.nameForUrl %>'>Link to venue page</a>
-  </div>
-<% }) %>
-
-<p> All Venues Page </p>
+<% } %>
 
 <% include ../partials/_footer %>

@@ -11,69 +11,51 @@
 
 <button class="info-page-button button-dark"><a href="<%= gig.ticketsUrl %>">Buy Tickets</a></button>
 
-
-
-
 <section class="info-page-links">
 
     <div class="info-page-link info-page-website">
-        <span>
-            <i class="far fa-window-maximize info-page-icon"></i>
-        </span>
-            <a href=<%= gig.website %> target="_blank">
-                <span><%= gig.website %></span>
-            </a>
+        <i class="far fa-window-maximize info-page-icon"></i>
+        <a href="<%= gig.website %>" target="_blank"><%= gig.website %></a>
     </div>
 
     <div class="info-page-link info-page-facebook">
-        <span>
-            <i class="fab fa-facebook-square info-page-icon"></i>
-        </span>
-            <a href=<%= gig.facebook %> target="_blank">
-                <span><%= gig.facebook %></span>
-            </a>
+        <i class="fab fa-facebook-square info-page-icon info-page-icon-fb"></i>
+        <a href="<%= gig.facebook %>" target="_blank"><%= gig.facebook %></a>
     </div>
 
     <div class="info-page-link info-page-twitter">
-        <span>
-            <i class="fab fa-twitter info-page-icon"></i>
-        </span>
-            <a href=<%= gig.twitter %> target="_blank">
-                <span><%= gig.twitter %></span>
-            </a>
+        <i class="fab fa-twitter info-page-icon"></i>
+        <a href="<%= gig.twitter %>" target="_blank"><%= gig.twitter %></a>
     </div>
 
     <div class="info-page-link info-page-instagram">
-        <span>
-            <i class="fab fa-instagram info-page-icon"></i>
-        </span>
-            <a href=<%= gig.instagram %> target="_blank">
-                <span><%= gig.instagram %></span>
-            </a>
+        <i class="fab fa-instagram info-page-icon info-page-icon-insta"></i>
+        <a href="<%= gig.instagram %>" target="_blank"><%= gig.instagram %></a>
     </div>
 
     <div class="info-page-link info-page-youtube">
-        <span>
-            <i class="fab fa-youtube info-page-icon"></i>
-        </span>
-            <a href=<%= gig.youtube %> target="_blank">
-                <span><%= gig.youtube %></span>
-            </a>
+        <i class="fab fa-youtube-square info-page-icon info-page-icon-yt"></i>
+        <a href="<%= gig.youtube %>" target="_blank"><%= gig.youtube %></a>
     </div>
+
+    <div class="info-page-link info-page-spotify">
+        <i class="fab fa-spotify info-page-icon info-page-icon-sp"></i>
+        <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/<%= gig.nameForUrl %></a>
+    </div>
+
 </section>
 
 <section class="band-description">
-
     <div class="info-page-description">
         <p><%= gig.description %></p>
     </div>
-
 </section>
 
+
+    
+
 <div class="youtube-video">
-    <iframe class="youtube-video" width="800" height="450" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="youtube-video" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-
-
 
 <% include ../partials/_footer %>

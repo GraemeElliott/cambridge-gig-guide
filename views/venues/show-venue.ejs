@@ -1,36 +1,273 @@
 <% include ../partials/_header %>
 
-<h1> The Gigs Show Template</h1>
+<div class="gig-image">
+  <img src="<%= venue.image%>">
+</div>
 
-    <div>
-        <h2><%= venue.name %></h2>
-        <a href="/venues/<%= venue.nameForUrl%>/edit">Edit</a>
+<h1 class="gig-listings-heading info-page-heading"><%= venue.name %></h1>
 
-        <p><%= venue.description %></p>
+<section class="venue-description">
+  <div class="info-page-description">
+      <p><%= venue.description %></p>
+  </div>
+</section>
+
+<h1 class="gig-listings-heading info-page-heading">Gig Listings</h1>
 
 
 
-        <form action="/venues/<%= venue.nameForUrl %>?_method=DELETE" method="POST">
-            <button>Delete</button>
-        </form>
-        
+<hr class="divider">
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().format("MMMM YYYY") %></h1></div>
+
+<div class="gig-listing">
+    <% for (var gig of sortedGigs) { %>      
+        <% if (gig.dateCalendar == moment().format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+            <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                <img class="img-spotlight" src="<%= gig.image %>">
+                <div class="gig-name card-text"> <%= gig.name %> </div>
+                <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+            </a></div>
+        <% } %>
+      <% } %>
+</div>
+<hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(1, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(1, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+    
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+    
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+    
+                </a></div>
+            <% } %>
+          <% } %>
     </div>
+    <hr class="divider">
+</div>
 
-    <div>
-        <% gigs.forEach((gig) => { %>
-          <div>
-            <%= gig.name %>
-          </div>
-          <div>
-            <%= gig.supports %>
-          </div>
-          <div>
-            <a href='/gigs/<%= gig.nameForUrl %>'>Link to gig page</a>
-          </div>
-          <div>
-            Submitted by: <a href='/users/<%= gig.author.username %>'><%= gig.author.username %></a>
-          </div>
-        <% }) %>
-      </div>
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(2, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>            
+            
+            <% if (gig.dateCalendar == moment().add(2, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(3, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(3, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(4, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(4, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(5, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>           
+            <% if (gig.dateCalendar == moment().add(5, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(6, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(6, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(7, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(7, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(8, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(8, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(9, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(9, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(10, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(10, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider">
+</div>
+
+<div class="month-wrapper">
+    <div class="month-date-heading"><h1><%= moment().add(11, 'M').format("MMMM YYYY") %></h1></div>
+
+    <div class="gig-listing">
+        <% for (var gig of sortedGigs) { %>      
+            <% if (gig.dateCalendar == moment().add(11, 'M').format("MMMM YYYY") && gig.date >= Date.now()) { %>
+
+                <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
+
+                    <img class="img-spotlight" src="<%= gig.image %>">
+                    <div class="gig-name card-text"> <%= gig.name %> </div>
+                    <div class="gig-venue card-text"> <%= gig.venue %> </div>
+                    <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+                </a></div>
+            <% } %>
+        <% } %>
+    </div>
+    <hr class="divider-end">
+</div>
 
 <% include ../partials/_footer %>
