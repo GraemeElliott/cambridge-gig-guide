@@ -29,12 +29,16 @@
       <ul class="navbar-links">
         <li class="nav-item nav-gigs"><a href="/gigs">Gig Listings</a></li>
         <li class="nav-item nav-venues"><a href="/venues">Venues</a></li>
-        <li class="nav-item nav-contact"><a href="#">Contact Us</a></li>
+        <li class="nav-item nav-contact"><a href="/contact-us">Contact Us</a></li>
       </ul>
           <ul class="sm-icons">
             <li class="nav-item nav-social">
               <i class="fab fa-twitter"></i>
               <i class="fab fa-instagram fa-instagram-nav"></i>
+              <% if(currentUser) { %>
+                <a href="/users/<%= currentUser.username %>"><i class="far fa-user fa-user-nav"></i></a>
+                <a href="/logout"><button class="logout-btn button-light">Logout</button></a>
+                <% } %>
             </li>
           </ul>
       <span class="hamburger" id="hamburger">
@@ -51,15 +55,22 @@
           <div class="nav-modal-content" id="nav-modal-content">
             <ul class="nav-modal-links">
               <li class="nav-item nav-item-cont-modal nav-gigs"><a href="/gigs">Gig Listings</a></li>
-              <li class="nav-item nav-item-cont-modal nav-venues"><a href="#">Venues</a></li>
+              <li class="nav-item nav-item-cont-modal nav-venues"><a href="/venues">Venues</a></li>
               <li class="nav-item nav-item-cont-modal nav-contact"><a href="#">Contact Us</a></li>
             </ul>
 
             <div class="nav-modal-sm">
               <ul class="modal-sm-icons">
-                <li class="nav-item nav-item-social-modal"><i class="fab fa-twitter fa-twitter-modal"></i></li>
-                <li class="nav-item nav-item-social-modal"><i class="fab fa-instagram fa-instagram-modal"></i></li>
-                <li class="nav-item nav-item-social-modal"><i class="far fa-envelope fa-envelope-modal"></i></li>
+                <li class="nav-item nav-item-social-modal"><a href="#"><i class="fab fa-twitter fa-twitter-modal"></i></a></li>
+                <li class="nav-item nav-item-social-modal"><a href="#"><i class="fab fa-instagram fa-instagram-modal"></i></a></li>
+                <% if(currentUser) { %>
+                    <li class="nav-item nav-item-social-modal">
+                      <a href="/users/<%= currentUser.username %>">
+                      <i class="far fa-user fa-user-nav"></i>
+                    </a>
+                  </li>
+                  <% } %>
+              </li>
               </ul>
             </div>
           </div>

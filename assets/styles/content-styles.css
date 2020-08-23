@@ -189,7 +189,6 @@
     white-space: pre-line;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    margin-right: 2rem;
 }
 
 .youtube-video {
@@ -224,6 +223,49 @@
     font-weight: 600;
 }
 
+/* User Profile */
+
+.user-profile-header {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.add-btn:hover {
+    background-color: #21bf73;
+    border: 0;
+}
+
+.gig-card-edit {
+    margin-bottom: -4px;
+}
+
+.manage-btns-wrapper {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    flex-direction: column;
+}
+
+.manage-btns-wrapper button {
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+}
+
+.delete-btn {
+    border-top: 0;
+    border-bottom: 0; 
+}
+
+.delete-btn:hover {
+    background-color: #e20325;
+}
 
 
 
@@ -291,6 +333,18 @@
     .gig-listing {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .user-profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-btn {
+        margin-top: 2rem;
+        
     }
 }
 

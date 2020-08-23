@@ -54,7 +54,7 @@ exports.createGig = async (req, res) => {
     let twitter = req.body.twitter;
     let instagram = req.body.instagram;
     let youtube = req.body.youtube;
-    let youtubeVideo = req.body.youtubeVideoID;
+    let youtubeVideoID = req.body.youtubeVideoID;
     let spotifyPlayer = req.body.spotifyPlayer;
     let description = req.body.description;
     let dateAdded = req.body.dateAdded;
@@ -89,7 +89,7 @@ exports.createGig = async (req, res) => {
       twitter: twitter,
       instagram: instagram,
       youtube: youtube,
-      youtubeVideo: youtubeVideoID,
+      youtubeVideoID: youtubeVideoID,
       spotifyPlayer: spotifyPlayer,
       description: description,
       dateAdded: dateAdded
@@ -146,7 +146,7 @@ exports.updateGig = async (req, res) => {
         gig.twitter = req.body.gig.twitter;
         gig.instagram = req.body.gig.instagram;
         gig.youtube = req.body.gig.youtube;
-        gig.youtubeVideo = req.body.gig.youtubeVideoID;
+        gig.youtubeVideoID = req.body.gig.youtubeVideoID;
         gig.spotifyPlayer = req.body.gig.spotifyPlayer;
         gig.description = req.body.gig.description;
         gig.save();
@@ -166,7 +166,7 @@ exports.deleteGig = catchAsync(async (req, res) => {
         let result = await cloudinary.v2.uploader.destroy(gig.imageId);
         gig.image = result.secure_url;
         gig.imageId = result.public_id;
-        res.redirect ('/gigs')
+        res.redirect ('back')
       }
     }
   )

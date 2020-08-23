@@ -13,36 +13,53 @@
 
 <section class="info-page-links">
 
-    <div class="info-page-link info-page-website">
-        <i class="far fa-window-maximize info-page-icon"></i>
-        <a href="<%= gig.website %>" target="_blank"><%= gig.website %></a>
-    </div>
+    <% if (gig.website == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-website">
+                <i class="far fa-window-maximize info-page-icon"></i>
+                <a href="<%= gig.website %>" target="_blank"><%= gig.website %></a>
+            </div>
+            <% } %>
 
-    <div class="info-page-link info-page-facebook">
-        <i class="fab fa-facebook-square info-page-icon info-page-icon-fb"></i>
-        <a href="<%= gig.facebook %>" target="_blank"><%= gig.facebook %></a>
-    </div>
+    <% if (gig.facebook == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-facebook">
+                <i class="fab fa-facebook-square info-page-icon info-page-icon-fb"></i>
+                <a href="<%= gig.facebook %>" target="_blank"><%= gig.facebook %></a>
+            </div>
+            <% } %>
 
-    <div class="info-page-link info-page-twitter">
-        <i class="fab fa-twitter info-page-icon"></i>
-        <a href="<%= gig.twitter %>" target="_blank"><%= gig.twitter %></a>
-    </div>
+    <% if (gig.twitter == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-twitter">
+                <i class="fab fa-twitter info-page-icon"></i>
+                <a href="<%= gig.twitter %>" target="_blank"><%= gig.twitter %></a>
+            </div>
+            <% } %>
 
-    <div class="info-page-link info-page-instagram">
-        <i class="fab fa-instagram info-page-icon info-page-icon-insta"></i>
-        <a href="<%= gig.instagram %>" target="_blank"><%= gig.instagram %></a>
-    </div>
+    <% if (gig.instagram == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-instagram">
+                <i class="fab fa-instagram info-page-icon info-page-icon-insta"></i>
+                <a href="<%= gig.instagram %>" target="_blank"><%= gig.instagram %></a>
+            </div>
+            <% } %>
 
-    <div class="info-page-link info-page-youtube">
-        <i class="fab fa-youtube-square info-page-icon info-page-icon-yt"></i>
-        <a href="<%= gig.youtube %>" target="_blank"><%= gig.youtube %></a>
-    </div>
+    <% if (gig.youtube == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-youtube">
+                <i class="fab fa-youtube-square info-page-icon info-page-icon-yt"></i>
+                <a href="<%= gig.youtube %>" target="_blank"><%= gig.youtube %></a>
+            </div>
+            <% } %>
 
-    <div class="info-page-link info-page-spotify">
-        <i class="fab fa-spotify info-page-icon info-page-icon-sp"></i>
-        <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/<%= gig.nameForUrl %></a>
-    </div>
-
+    <% if (gig.youtube == "") { %>
+        <% } else { %>
+            <div class="info-page-link info-page-spotify">
+                <i class="fab fa-spotify info-page-icon info-page-icon-sp"></i>
+                <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/<%= gig.nameForUrl %></a>
+            </div>
+            <% } %>
 </section>
 
 <section class="band-description">
@@ -52,10 +69,11 @@
 </section>
 
 
-    
-
-<div class="youtube-video">
-    <iframe class="youtube-video" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<% if (gig.youtubeVideoID == "") { %>
+    <% } else { %>
+        <div class="youtube-video">
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <% } %>
 
 <% include ../partials/_footer %>

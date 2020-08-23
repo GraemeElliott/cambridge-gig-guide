@@ -43,8 +43,8 @@ img {
 }
 
 a {
-  color: #000000;
   text-decoration: none;
+  color: #000000;
 }
 
 .btn-div {
@@ -68,7 +68,7 @@ button {
 .button-light:hover {
   cursor: pointer;
   background-color: #000000;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .button-dark {
@@ -133,7 +133,14 @@ nav {
   margin-left: 2rem;
 }
 
-.fa-instagram-nav {
+.fa-instagram-nav,
+.fa-user-nav {
+  margin-left: 1rem;
+}
+
+.logout-btn {
+  background-color: #ffffff;
+  padding: 0.5rem;
   margin-left: 1rem;
 }
 
@@ -290,12 +297,15 @@ nav {
 
   .modal-sm-icons {
     font-size: 2rem;
-    color: #ffffff;
     margin-bottom: 3rem;
   }
 
   .modal-sm-icons i {
     font-size: 2rem;
+  }
+
+  .modal-sm-icons a {
+    color: #ffffff;
   }
 
   .modal-sm-icons li {

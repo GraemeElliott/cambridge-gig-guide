@@ -7,4 +7,8 @@ router
   .route('/')
   .get(indexController.getAllGigs);
 
+  router
+  .route('/contact-us')
+  .get(indexController.contactUs);;
+
 module.exports = router

@@ -1,4 +1,5 @@
 const Gig = require('../models/gigModel');
+const User = require('../models/userModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const moment = require("moment");
@@ -26,4 +27,8 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
   const newlyReleasedGigs = newlyReleasedSorted.slice(0, 6);
 
   res.render('index', {gigs: gigs, moment: moment, upcommingGigs:upcommingGigs, newlyReleasedGigs:newlyReleasedGigs})
+});
+
+exports.contactUs = catchAsync(async (req, res, next) => {
+  res.render('index/contact-us')
 });

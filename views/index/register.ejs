@@ -1,19 +1,46 @@
-<!--For example purposes only. Not being used on this site-->
-
 <% include ../partials/_header %>
 
-<h1>Promoter Register</h1>
+<% if(currentUser.role == "admin") { %>
 
+<div class="form-wrapper">
+    <div class="form-heading-block">
+        <h1 class="form-heading">Register</h1>
+    </div>
+    <form class="form" action="/register" method="POST">
+        <div class="input-field">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName">
+        </div>
+        <div class="input-field">
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName">
+        </div>
+        <div class="input-field">
+            <label for="username">Username:</label>
+            <input type="text" name="username">
+        </div>
+        <div class="input-field">
+            <label for="email">Email:</label>
+            <input type="email" name="email">
+        </div>
+        <div class="input-field">
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+        </div>
+        <div class="input-field">
+            <label for="passwordConfirmation">Password Confirmation:</label>
+            <input type="password" name="passwordConfirmation">
+        </div>
+        <div class="input-field">
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>
+    </form>
+</div>
 
-<form action="/register" method="POST">
-    <input type="text" name="firstName" placeholder="First Name">
-    <input type="text" name="lastName" placeholder="Last Name">
-    <input type="text" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="passwordConfirmation" placeholder="Password Confirm">
-    <button>Submit</button>
-</form>
+<% } else { %>
 
+    <h1 class="noreg-message"> You are not able to register new users </h1>
+
+    <% } %>
 
 <% include ../partials/_footer %>

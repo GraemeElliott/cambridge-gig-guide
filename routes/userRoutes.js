@@ -6,8 +6,8 @@ const router = express.Router();
 
 router
   .route('/register')
-  .get(authenticationController.registerForm)
-  .post(authenticationController.isLoggedIn, authenticationController.register);
+  .get(authenticationController.isLoggedIn,authenticationController.registerForm)
+  .post(authenticationController.register);
 
 router
   .route('/login')

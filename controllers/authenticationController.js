@@ -4,6 +4,7 @@ const Venue = require('../models/venueModel');
 const catchAsync = require('../utilities/catchAsync');
 const AppError = require('../utilities/appError');
 const passport = require('passport');
+const moment = require('moment');
 
 // REGISTER
 exports.registerForm = async (req, res) => {
@@ -35,11 +36,16 @@ exports.loginForm = async (req, res) => {
   res.render('index/login');
 };
 
-exports.login = passport.authenticate('local',
-  {
-    successRedirect: "/",
-    failureRedirect: "/login"
-  });
+exports.login = async (req, res, next) => {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/login'); }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/users/' + user.username);
+    });
+  })(req, res, next);
+};
 
 exports.logout = async (req, res) => {
     req.logout();
@@ -55,17 +61,24 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
 
 // USER PROFILE
 exports.userProfile = catchAsync(async (req, res) => {
-  User.findOne({ username: req.params.id }, function (err, foundUser) {
+
+  User.findOne({ username: req.params.id}, function (err, foundUser) {
     if (err) {
       console.log(err)
       res.redirect('/');
     }
     Gig.find().where('author.id').equals(foundUser._id).exec(function(err, gigs) {
-      console.log(gigs)
-      res.render('users/user-profile', {user: foundUser, gigs: gigs})
+
+      const sortedGigs = gigs.sort((a, b) => {
+        return Date.parse(new Date(a.date)) - Date.parse(new Date(b.date));
+      });
+      
+
+      res.render('users/user-profile', {user: foundUser, moment:moment, sortedGigs:sortedGigs})
     });
     }
   )
+
 });
 
 // CHECK OWNERSHIP
