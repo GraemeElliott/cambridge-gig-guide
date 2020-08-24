@@ -154,6 +154,22 @@ nav {
 
 /* Navbar End */
 
+/* Messages */
+
+.alert-error {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #e20325;
+  border: solid 2px #e20325;
+}
+
+.alert-success {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #21bf73;
+  border: solid 2px #21bf73;
+}
+
 /* Footer Start */
 .footer {
   display: flex;

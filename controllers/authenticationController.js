@@ -6,6 +6,7 @@ const AppError = require('../utilities/appError');
 const passport = require('passport');
 const moment = require('moment');
 
+
 // REGISTER
 exports.registerForm = async (req, res) => {
   res.render('index/register');
@@ -26,7 +27,7 @@ exports.register = catchAsync(async (req, res, next) => {
       return res.render('index/register');
     }
     passport.authenticate('local')(req, res, function() {
-      res.redirect('/');
+      res.redirect('/users/' + user.username);
     });
   });
 });
@@ -42,13 +43,14 @@ exports.login = async (req, res, next) => {
     if (!user) { return res.redirect('/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/users/' + user.username);
+      return req.flash("success", "Successfully logged in"), res.redirect('/users/' + user.username);
     });
   })(req, res, next);
 };
 
 exports.logout = async (req, res) => {
     req.logout();
+    req.flash("success", "You have successfully logged out")
     res.redirect('/');
   };
 
@@ -56,6 +58,7 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
+  req.flash("error", "You must be logged in to do that")
   res.redirect('/login');
 });
 
@@ -87,16 +90,19 @@ exports.checkGigOwnership = catchAsync(async (req, res, next) => {
     await Gig.findOne({ nameForUrl: req.params.id }, 
       (error, editGig) => {
         if (error) {
+          req.flash("error", "Gig does not exist")
           res.redirect('back')
         } else {
           if (editGig.author.id.equals(req.user._id)) {
             next();
           } else {
+            req.flash("error", "You don't have permission to do that")
             res.redirect('back');
           };          
         };
     });
   } else {
+    req.flash("error", "You must be logged in to do that")
     res.redirect('back');
   };
 });

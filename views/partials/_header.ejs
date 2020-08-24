@@ -87,5 +87,15 @@
 
     <div class="main-content">
 
+      <section>
+        <% if(error && error.length > 0) { %>
+          <div class="alert-error"><%= error %></div>
+          <% } %>
+          <% if(success && success.length > 0) { %>
+              <h1 class="alert-success"><%= success %></h1>
+              <% } %>
+      </section>
+
+
     
   

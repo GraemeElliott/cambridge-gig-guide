@@ -7,6 +7,7 @@ const AppError = require('../utilities/appError');
 const multer = require('multer');
 const moment = require("moment");
 const { db, count } = require("../models/gigModel");
+const { connect } = require("mongoose");
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -25,7 +26,6 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
 exports.getGig = catchAsync(async (req, res, next) => {
   const gig = await Gig.findOne({ nameForUrl: req.params.id }, (error, gigPage) => {
     if (error) {
-      console.log(error);
     } else {
       res.render("gigs/show-gig", { gig: gigPage, moment: moment });
     }
@@ -101,6 +101,7 @@ exports.createGig = async (req, res) => {
   } catch (error) {
     console.log (error);
   }
+
   res.redirect("/gigs");
 };
 
@@ -117,6 +118,7 @@ exports.updateGig = async (req, res) => {
     req.body.gig,
     async function(error, gig) {
       if (error) {
+        req.flash("error", "Gig does not exist")
         res.redirect('back');
       } else {
         if (req.file) {
@@ -129,6 +131,7 @@ exports.updateGig = async (req, res) => {
 
           } catch (error) {
             console.log(error);
+            req.flash("error", "Something went wrong")
             return res.redirect('back');
           };
         };
@@ -150,7 +153,8 @@ exports.updateGig = async (req, res) => {
         gig.spotifyPlayer = req.body.gig.spotifyPlayer;
         gig.description = req.body.gig.description;
         gig.save();
-        res.redirect('/gigs/');
+        req.flash("success", "Gig successfully updated")
+        res.redirect('/gigs/' + gig.nameForUrl);
       }
     }
   );
@@ -166,6 +170,7 @@ exports.deleteGig = catchAsync(async (req, res) => {
         let result = await cloudinary.v2.uploader.destroy(gig.imageId);
         gig.image = result.secure_url;
         gig.imageId = result.public_id;
+        req.flash("success", "Gig successfully deleted")
         res.redirect ('back')
       }
     }
