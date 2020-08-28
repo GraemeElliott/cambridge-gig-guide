@@ -136,6 +136,14 @@
     color: #ffffff;
 }
 
+.login-form-text {
+    margin-bottom: 1rem;
+}
+
+.login-form-text a {
+    font-size: 1.2rem;
+}
+
 .non-admin-message {
     text-align: center;
 }
