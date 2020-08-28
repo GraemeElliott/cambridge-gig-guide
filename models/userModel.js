@@ -35,17 +35,8 @@ const userSchema = new mongoose.Schema ({
     minlength: 8,
     select: false,
   },
-  passwordConfirmation: {
-    type: String,
-    required: [true, 'Please confirm your password'],
-    validate: {
-      // Works on .save() and .create() only
-      validator: function (element) {
-        return element === this.password;
-      },
-      message: 'Passwords do not match',
-    },
-  },
+  resetPasswordToken: String,
+  resetPasswordExpiration: Date,
   active: {
     type: Boolean,
     default: false,

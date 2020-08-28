@@ -22,4 +22,14 @@ router
 .route('/users/:id')
 .get(authenticationController.isLoggedIn, authenticationController.userProfile);
 
+router
+.route('/password-reset')
+.get(authenticationController.forgotPassword)
+.post(authenticationController.passwordResetEmail);
+
+router
+.route('/reset/:token')
+.get(authenticationController.passwordResetForm)
+.post(authenticationController.passwordReset);
+
 module.exports = router
