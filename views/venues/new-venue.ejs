@@ -1,51 +1,61 @@
 <% include ../partials/_header %>
 
-<div class="form-wrapper">
-    <div class="form-heading-block">
-        <h1 class="form-heading">Create a new venue</h1>
-    </div>
+<% if(currentUser.role == "admin") { %>
 
-    <form id="form" class="form" action="/venues" method="POST" enctype="multipart/form-data"> 
+<div class="wrapper">
+    <div class="form-wrapper">
+        <div class="form-heading-block">
+            <h1 class="form-heading">Create a new venue</h1>
+        </div>
 
-    <div class="input-field">
-        <label for="venue-name">Venue Name</label>
-        <input type="text" name="name">
-    </div>
+        <form id="form" class="form" action="/venues" method="POST" enctype="multipart/form-data"> 
 
-    <div class="image-selector input-field">     
-        <label for="image">Image</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
-    </div>
-    <div class="input-field">
-        <label for="website-url">Website URL</label>
-        <input type="text" name="website">
-    </div>
-    <div class="input-field">
-        <label for="facebook">Facebook Profile URL</label>
-        <input type="text" name="facebook">
-    </div>
-    <div class="input-field">
-        <label for="twitter">Twitter Profile URL</label>
-        <input type="text" name="twitter">
-    </div>
-    <div class="input-field">
-        <label for="instagram">Instagram Profile URL</label>
-        <input type="text" name="instagram">
-    </div>
-    <div class="input-field">
-        <label for="youtube">YouTube Profile URL</label>
-        <input type="text" name="youtube">
-    </div>
-    <div class="input-field">
-        <label for="description">Venue Bio</label>
-        <textarea type="text" name="description"></textarea>
-    </div>
+        <div class="input-field">
+            <label for="venue-name">Venue Name</label>
+            <input type="text" name="name" required>
+        </div>
 
-    <div class="input-field">
-        <input type="submit" value="Submit" class="submit-btn">
+        <div class="image-selector input-field">     
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <div class="input-field">
+            <label for="website-url">Website URL</label>
+            <input type="text" name="website">
+        </div>
+        <div class="input-field">
+            <label for="facebook">Facebook Profile URL</label>
+            <input type="text" name="facebook">
+        </div>
+        <div class="input-field">
+            <label for="twitter">Twitter Profile URL</label>
+            <input type="text" name="twitter">
+        </div>
+        <div class="input-field">
+            <label for="instagram">Instagram Profile URL</label>
+            <input type="text" name="instagram">
+        </div>
+        <div class="input-field">
+            <label for="youtube">YouTube Profile URL</label>
+            <input type="text" name="youtube">
+        </div>
+        <div class="input-field">
+            <label for="description">Venue Bio</label>
+            <textarea type="text" name="description" required></textarea>
+        </div>
+
+        <div class="input-field">
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>
+        
+        </form>
     </div>
-    
-    </form>
 </div>
+
+<% } else { %>
+
+    <h1 class="non-admin-message"> You are not able to create new venue pages </h1>
+
+    <% } %>
 
 <% include ../partials/_footer %>

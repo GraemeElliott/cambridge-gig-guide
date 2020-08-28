@@ -1,13 +1,11 @@
 //For Cloudinary
-const { cloudinary, upload } = require("../models/cloudinary");
-
-const Gig = require('../models/gigModel');
-const catchAsync = require('../utilities/catchAsync');
-const AppError = require('../utilities/appError');
-const multer = require('multer');
-const moment = require("moment");
-const { db, count } = require("../models/gigModel");
-const { connect } = require("mongoose");
+const { cloudinary, upload } = require("../models/cloudinary"),
+      Gig = require('../models/gigModel'),
+      catchAsync = require('../utilities/catchAsync'),
+      multer = require('multer'),
+      moment = require("moment"),
+      { db, count } = require("../models/gigModel"),
+      { connect } = require("mongoose");
 
 exports.gigForm = async (req, res) => {
   res.render('gigs/new-gig');
@@ -25,7 +23,8 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
 
 exports.getGig = catchAsync(async (req, res, next) => {
   const gig = await Gig.findOne({ nameForUrl: req.params.id }, (error, gigPage) => {
-    if (error) {
+    if (!gigPage) {
+      res.render("error", { gig: gigPage});
     } else {
       res.render("gigs/show-gig", { gig: gigPage, moment: moment });
     }
@@ -33,11 +32,6 @@ exports.getGig = catchAsync(async (req, res, next) => {
 });
 
 exports.createGig = async (req, res) => {
-  if (!req.file) {
-    req.flash("error", "Please fill out this field");
-    return res.redirect("back");
-  };
-
   // try/catch for async + await code
   try {
     let name = req.body.name;
@@ -97,12 +91,12 @@ exports.createGig = async (req, res) => {
 
     //Create a new gig and save it to the database
     await Gig.create(newGig);
-    console.log(newGig);
   } catch (error) {
-    console.log (error);
+    req.flash("error", "A gig with that name already exists")
+    return res.redirect('back');
   }
-
-  res.redirect("/gigs");
+  req.flash("success", "Gig successfully created")
+  res.redirect('/gigs/');
 };
 
 exports.editGigForm = catchAsync(async (req, res) => {
@@ -130,7 +124,6 @@ exports.updateGig = async (req, res) => {
             gig.imageId = result.public_id;
 
           } catch (error) {
-            console.log(error);
             req.flash("error", "Something went wrong")
             return res.redirect('back');
           };
@@ -154,7 +147,7 @@ exports.updateGig = async (req, res) => {
         gig.description = req.body.gig.description;
         gig.save();
         req.flash("success", "Gig successfully updated")
-        res.redirect('/gigs/' + gig.nameForUrl);
+        res.redirect('/gigs/');
       }
     }
   );
@@ -165,6 +158,7 @@ exports.deleteGig = catchAsync(async (req, res) => {
     { nameForUrl: req.params.id},
     req.body.gig, async (error, gig) => {
       if (error) {
+        req.flash("error", "Something went wrong")
         res.redirect ('back')
       } else {
         let result = await cloudinary.v2.uploader.destroy(gig.imageId);

@@ -1,19 +1,48 @@
 const currentMonth = `moment().format("MMMM") moment().format("YYYY")`;
 
+//Flash messages dissapear
+setTimeout(function() {
+  $('.alert-error').fadeOut('slow');
+  $('.alert-success').fadeOut('slow');
+}, 3000);
+
 //Modal Script
+
 function openModal() {
   document.getElementById("nav-modal").style = "height: 100%; position: fixed;";
-  document.getElementById("nav-modal-footer").style = "transition-property: visibility; transition-delay: 0.95s; visibility: visible";
+  document.getElementById("nav-modal-gigs").style = "transition-property: visibility; transition-delay: 0.9s; visibility: visible";
+
+  document.getElementById("nav-modal-venues").style = "transition-property: visibility; transition-delay: 0.9s; visibility: visible";
+
+  document.getElementById("nav-modal-contact").style = "transition-property: visibility; transition-delay: 0.9s; visibility: visible";
+
+  document.getElementById("nav-modal-sm").style = "transition-property: visibility; transition-delay: 0.9s; visibility: visible";
+
+  document.getElementById("nav-modal-footer").style = "transition-property: visibility; transition-delay: 0.9s; visibility: visible";
+
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   document.getElementById("nav-modal").style.height = "0%";
+  document.getElementById("nav-modal-gigs").style = "visibility: hidden"
+  document.body.style.overflow = 'visible';
+
+  document.getElementById("nav-modal-venues").style = "visibility: hidden"
+  document.body.style.overflow = 'visible';
+
+  document.getElementById("nav-modal-contact").style = "visibility: hidden"
+  document.body.style.overflow = 'visible';
+
+  document.getElementById("nav-modal-sm").style = "visibility: hidden"
+  document.body.style.overflow = 'visible';
+
   document.getElementById("nav-modal-footer").style = "visibility: hidden"
   document.body.style.overflow = 'visible';
 }
 
-//Carousel Scrips
+//Carousel Scripts
+
 $(document).ready(function(){
   $('.gig-grid-nr').slick({
     dots: false,
@@ -115,6 +144,3 @@ $('.gig-grid-ug').slick({
 $(".gig-listing").filter(function() {
     return !$.trim($(this).text());
 }).parent().hide();
-
-
-

@@ -2,10 +2,13 @@
 
 <% for (var venue of sortedVenues) { %>
   <div class="venues-wrapper">
-    <a href="/venues/<%= venue.nameForUrl %>">
-      <button class="all-venues-venue button-light"><%= venue.name %></button>
-    </a>
+      <button onclick="window.location.href='/venues/<%= venue.nameForUrl %>'" class="all-venues-venue button-light"><%= venue.name %></button>
   </div>
+
+
+
+
+
 <% } %>
 
 <% include ../partials/_footer %>

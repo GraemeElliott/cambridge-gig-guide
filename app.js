@@ -1,7 +1,7 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
-      AppError = require('./utilities/appError'),
       passport = require('passport'),
+      session = require('express-session'),
       LocalStrategy = require('passport-local').Strategy,
       methodOverride = require('method-override'),
       flatpickr = require("flatpickr"),
@@ -19,11 +19,13 @@ const app = express();
 app.use(flash());
 
 // PASSPORT CONFIGURATION
-app.use(require('express-session')({
+app.use(session({
   secret: process.env.PASSPORT_SECRET,
   resave: false,
   saveUninitialized: false
 }));
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,6 +47,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 // MIDDLEWARE END
@@ -56,7 +59,7 @@ app.use('/venues', venueRouter);
 app.use('/user', userRouter);
 
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+  next(res.render("error"));
 });
 
 // ROUTES END

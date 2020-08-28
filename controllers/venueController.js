@@ -1,12 +1,10 @@
 //For Cloudinary
-const { cloudinary, upload } = require("../models/cloudinary");
-
-const Venue = require('../models/venueModel');
-const Gig = require('../models/gigModel')
-const catchAsync = require('../utilities/catchAsync');
-const AppError = require('../utilities/appError');
-const multer = require('multer');
-const moment = require("moment");
+const { cloudinary, upload } = require("../models/cloudinary"),
+      Venue = require('../models/venueModel'),
+      Gig = require('../models/gigModel'),
+      catchAsync = require('../utilities/catchAsync'),
+      multer = require('multer'),
+      moment = require("moment");
 
 exports.venueForm = async (req, res) => {
   res.render('venues/new-venue');
@@ -25,7 +23,7 @@ exports.getAllVenues = catchAsync(async (req, res, next) => {
 exports.getVenue = catchAsync(async (req, res, next) => {
   const venue = await Venue.findOne({ nameForUrl: req.params.id }, (error, venue) => {
     if (error) {
-      console.log(error);
+      res.render("error", { venue: venue });
     } else {
       Gig.find().where('venueForUrl').equals(venue.nameForUrl).exec(function(err, gigs) {
         const sortedGigs = gigs.sort((a, b) => {
@@ -80,10 +78,9 @@ exports.createVenue = async (req, res) => {
 
     //Create a new gig and save it to the database
     await Venue.create(newVenue);
-    console.log(newVenue);
   } catch (error) {
-    console.log (error);
   }
+  req.flash("success", "Venue successfully created")
   res.redirect("/venues");
 };
 
@@ -100,9 +97,11 @@ exports.updateVenue = catchAsync(async (req, res) => {
     req.body.venue,
     function(error, updatedGig) {
       if (error) {
+        req.flash("error", "Something went wrong")
         res.redirect('/venues');
       } else {
-        res.redirect('/venues/');
+        req.flash("success", "Gig successfully updated")
+        res.redirect('/venues/' + venue.nameForUrl);
       }
     }
   );
@@ -113,8 +112,10 @@ exports.deleteVenue = catchAsync(async (req, res) => {
     { nameForUrl: req.params.id},
     req.body.venue, (error) => {
       if (error) {
+        req.flash("error", "Something went wrong")
         res.redirect ('/venues')
       } else {
+        req.flash("success", "Gig successfully deleted")
         res.redirect ('/venues')
       }
     }

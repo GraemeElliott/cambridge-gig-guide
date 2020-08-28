@@ -2,44 +2,46 @@
 
 <% if(currentUser.role == "admin") { %>
 
-<div class="form-wrapper">
-    <div class="form-heading-block">
-        <h1 class="form-heading">Register</h1>
+<div class="wrapper">
+    <div class="form-wrapper">
+        <div class="form-heading-block">
+            <h1 class="form-heading">Register</h1>
+        </div>
+        <form class="form" action="/register" method="POST">
+            <div class="input-field">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" required>
+            </div>
+            <div class="input-field">
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" required>
+            </div>
+            <div class="input-field">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="input-field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="input-field">
+                <label for="passwordConfirmation">Password Confirmation:</label>
+                <input type="password" name="passwordConfirmation" required>
+            </div>
+            <div class="input-field">
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
+        </form>
     </div>
-    <form class="form" action="/register" method="POST">
-        <div class="input-field">
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName">
-        </div>
-        <div class="input-field">
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName">
-        </div>
-        <div class="input-field">
-            <label for="username">Username:</label>
-            <input type="text" name="username">
-        </div>
-        <div class="input-field">
-            <label for="email">Email:</label>
-            <input type="email" name="email">
-        </div>
-        <div class="input-field">
-            <label for="password">Password:</label>
-            <input type="password" name="password">
-        </div>
-        <div class="input-field">
-            <label for="passwordConfirmation">Password Confirmation:</label>
-            <input type="password" name="passwordConfirmation">
-        </div>
-        <div class="input-field">
-            <input type="submit" value="Submit" class="submit-btn">
-        </div>
-    </form>
 </div>
 
 <% } else { %>
 
-    <h1 class="noreg-message"> You are not able to register new users </h1>
+    <h1 class="non-admin-message"> You are not able to register new users </h1>
 
     <% } %>
 

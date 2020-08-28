@@ -2,12 +2,12 @@
 
   <section class="spotlight">
 
-      <div class="spotlight-card"><a href="/gigs/biffy-clyro">
+      <div class="gig-card spotlight-card"><a href="/gigs/biffy-clyro">
 
           <% for (var gig of gigs) { %>
             
             <% if (gig.name === 'Biffy Clyro') { %>
-              <img class="img-spotlight" src="<%= gig.image %>">
+              <img class="gig-image" src="<%= gig.image %>">
               <div class="gig-name card-text"> <%= gig.name %> </div>
               <div class="gig-venue card-text"> <%= gig.venue %> </div>
               <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
@@ -17,7 +17,7 @@
   
         </a></div>
 
-      <section class="monthly-update">
+      <div class="monthly-update">
           <h1 class="monthly-update-heading"><%= moment().format('MMMM YYYY') %> - News and what's comming up</h1>
           <div class="monthly-update-text">
               Skate ipsum dolor sit amet, invert Ray Underhill lip coffin full-cab durometer. Front foot impossible Kevin Harris soul skate kick-nose tic-tac. Danny Way finger flip indy grab nose slide fastplant backside. Fakie risers quarter pipe half-cab grab. Hand rail cess slide handplant skate or die street. Stoked method air skate key birdie manual. Quarter pipe full-cab lip hurricane tail. Baseplate China Banks crail slide hospital flip tuna-flip mini ramp. Nose blunt chicken wing goofy footed 1080 rad Venice.
@@ -28,7 +28,7 @@
               <br>
               Footed griptape Shorty's. Rail frigid air lien air hip griptape hand rail. Aerial dude drop in Willy Santos shinner indy grab 540.
           </div>
-        </section>      
+        </div>      
 
   </section>
 
@@ -38,8 +38,8 @@
     <div class="gig-grid-nr"> 
       <% for (var gig of newlyReleasedGigs) { %>
         <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
-          <img class="img-spotlight" src="<%= gig.image%>">
-          <div class="gig-name gig-name-card card-text"> <%= gig.name %> </div>
+          <img class="gig-image" src="<%= gig.image%>">
+          <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
         </a></div>
@@ -53,9 +53,9 @@
             <a href="/gigs/<%= gig.nameForUrl %>"><img class="img-spotlight" src="<%= gig.image%>"></a>
           </div>
           <div class="column-right">
-            <div class="gig-name"> <%= gig.name %> </div>
-            <div class="gig-venue"> <%= gig.venue %> </div>
-            <div class="gig-date"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+            <div class="gig-name gig-panel-name gig-panel-text"> <%= gig.name %> </div>
+            <div class="gig-venue gig-panel-text"> <%= gig.venue %> </div>
+            <div class="gig-date gig-panel-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
             <div class="gig-description"> <%= gig.description %> </div>
         </div>
           </div>
@@ -69,8 +69,8 @@
     <div class="gig-grid-ug">
       <% for (var gig of upcommingGigs) { %>
         <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
-          <img class="img-spotlight" src="<%= gig.image%>">
-          <div class="gig-name gig-name-card card-text"> <%= gig.name %> </div>
+          <img class="gig-image" src="<%= gig.image%>">
+          <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
         </a></div>
@@ -84,18 +84,16 @@
             <a href="/gigs/<%= gig.nameForUrl %>"><img class="img-spotlight" src="<%= gig.image%>"></a>
           </div>
           <div class="column-right">
-            <div class="gig-name"> <%= gig.name %> </div>
-            <div class="gig-venue"> <%= gig.venue %> </div>
-            <div class="gig-date"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+            <div class="gig-name gig-panel-name gig-panel-text"> <%= gig.name %> </div>
+            <div class="gig-venue gig-panel-text"> <%= gig.venue %> </div>
+            <div class="gig-date gig-panel-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
             <div class="gig-description"> <%= gig.description %> </div>
         </div>
           </div>
       <% } %>
     </div>
-
-    <div class="btn-div">
-      <a href="/gigs"><button class="view-more button button-light">View More Upcomming Gigs</button></a>
-    </div>
+    
+    <button onclick="window.location.href='/gigs'" class="view-more-btn button button-light">View More Upcomming Gigs</button>
   </section>
 </div>
 

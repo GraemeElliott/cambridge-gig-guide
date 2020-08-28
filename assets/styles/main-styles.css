@@ -1,3 +1,4 @@
+/* Main/Body Styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +10,6 @@
 html,
 body {
   height: 100%;
-  margin-bottom: -50px;
-  font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -21,6 +20,11 @@ body {
   flex-direction: column;
   max-width: 1024px;
   margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+}
+
+section {
+  margin-bottom: 3rem;
 }
 
 .main-content {
@@ -33,8 +37,14 @@ body {
 
 h1 {
   font-family: 'Oswald', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.25rem;
   font-weight: 400;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 img {
@@ -45,12 +55,6 @@ img {
 a {
   text-decoration: none;
   color: #000000;
-}
-
-.btn-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 button {
@@ -68,21 +72,18 @@ button {
 .button-light:hover {
   cursor: pointer;
   background-color: #000000;
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .button-dark {
   background-color: #000000;
-  color: #ffffff;
-}
-
-.button-dark a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .button-dark:hover {
   cursor: pointer;
 }
+/* Main/Body Styles End */
 
 /* Navbar */
 nav {
@@ -90,7 +91,7 @@ nav {
   grid-template-columns: 1fr auto auto;
   grid-template-areas: "logo links sm-icons";
   margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   align-items: center;
   font-family: 'Oswald', sans-serif;
 }
@@ -102,13 +103,7 @@ nav {
 }
 
 .nav-item, .nav-item a {
-  text-decoration: none;
   list-style: none;
-}
-
-.navbar-links {
-  grid-area: links;
-  text-align: center;
 }
 
 .navbar-links li {
@@ -117,7 +112,6 @@ nav {
 }
 
 .navbar-links li a, .sm-icons i {
-  text-decoration: none;
   color: #000000;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -125,11 +119,11 @@ nav {
 }
 
 .navbar-links li a:hover {
-  text-decoration: solid 2px underline;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .sm-icons {
-  grid-area: sm-icons;
   margin-left: 2rem;
 }
 
@@ -139,8 +133,6 @@ nav {
 }
 
 .logout-btn {
-  background-color: #ffffff;
-  padding: 0.5rem;
   margin-left: 1rem;
 }
 
@@ -151,11 +143,9 @@ nav {
 .nav-modal {
   display: none;
 }
-
 /* Navbar End */
 
-/* Messages */
-
+/* Alerts */
 .alert-error {
   text-align: center;
   margin-bottom: 4rem;
@@ -169,6 +159,24 @@ nav {
   color: #21bf73;
   border: solid 2px #21bf73;
 }
+/* Alerts End */
+
+/* 404 Error Page */
+.error-404-wrapper {
+  text-align: center;
+
+}
+.error-heading {
+  font-size: 12rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+.error-sub-heading {
+  font-size: 4rem;
+  font-family: 'Oswald', sans-serif;
+
+}
+/* 404 Error Page End */
 
 /* Footer Start */
 .footer {
@@ -182,7 +190,7 @@ nav {
   font-family: 'Oswald', sans-serif;
 }
 
-.pro-ven-btn-footer {
+.login-btn-footer {
   margin-left: auto;
 }
 
@@ -191,14 +199,16 @@ nav {
   font-size: 1.1rem;
 }
 
-.do-text {
+.developer-text {
   font-weight: 400;
 }
 
 .footer-sm-icon {
   margin-left: 0.5rem;
 }
+/*Footer End */
 
+/*Media Queries */
 @media screen and (max-width: 1100px) {
   body {
     margin-left: 2rem;
@@ -206,9 +216,7 @@ nav {
   }
 }
 
-/* Tablets */
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
   h1 {
       font-size: 2rem;
   }
@@ -252,6 +260,18 @@ nav {
     -moz-transition: 1.0s;
   }
 
+  #nav-modal-gigs,
+  #nav-modal-venues,
+  #nav-modal-contact,
+  #nav-modal-sm,
+  #nav-modal-footer {
+    visibility: hidden;
+  }
+
+  .nav-modal-footer {
+    margin-bottom: 2rem;
+  }
+
   .nav-modal-header {
     display: flex;
     display: -webkit-flex;
@@ -274,7 +294,7 @@ nav {
     color: #ffffff;
   }
 
-  .nav-modal-content,
+  .nav-modal-links-wrapper,
   .nav-modal-footer {
     display: flex;
     display: -webkit-flex;
@@ -285,7 +305,7 @@ nav {
     flex-direction: column;
   }
 
-  .nav-modal-content {
+  .nav-modal-links-wrapper {
     flex: 1;
   }
 
@@ -297,16 +317,12 @@ nav {
     color: #ffffff;
   }
 
-  .nav-item-cont-modal,
-  .nav-modal-pro-ven {
+  .nav-modal-item-link {
     border: solid 2px #ffffff;
     box-sizing: border-box;
     padding: 0.3rem;
     padding-left: 4rem;
     padding-right: 4rem;
-  }
-
-  .nav-item-cont-modal {
     margin-top: 4rem;
     margin-bottom: 2rem;
   }
@@ -329,25 +345,31 @@ nav {
     padding: 1rem;
   }
 
-  .nav-modal-footer {
-    margin-bottom: 2rem;
-    visibility: hidden;
-    
-  }
-
-  .pro-ven-btn-footer {
-      display: none;
-  }
-
   .footer {
       text-align: center;
       justify-content: center;
   }
+  
+  .login-btn-footer {
+    display: none;
+  }
 }
 
 @media screen and (max-height: 750px) {
-  .nav-item-cont-modal {
+  .nav-modal-item-link {
     margin-top: 4rem;
     margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .error-heading {
+    font-size: 10rem;
+
+  }
+  
+  .error-sub-heading {
+    font-size: 3rem;
+
   }
 }

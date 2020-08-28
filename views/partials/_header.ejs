@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="">
+  <title>Cambridge Gig Guide</title>
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
@@ -25,7 +25,7 @@
   <body>
     
     <nav class="navbar">
-      <div class="logo"><a href="/"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo" class="logo"></a></div>
+      <div class="logo"><a href="/"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo"></a></div>
       <ul class="navbar-links">
         <li class="nav-item nav-gigs"><a href="/gigs">Gig Listings</a></li>
         <li class="nav-item nav-venues"><a href="/venues">Venues</a></li>
@@ -37,7 +37,7 @@
               <i class="fab fa-instagram fa-instagram-nav"></i>
               <% if(currentUser) { %>
                 <a href="/users/<%= currentUser.username %>"><i class="far fa-user fa-user-nav"></i></a>
-                <a href="/logout"><button class="logout-btn button-light">Logout</button></a>
+                <button onclick="window.location.href='/logout'" class="logout-btn button-dark">Logout</button>
                 <% } %>
             </li>
           </ul>
@@ -48,23 +48,23 @@
       <div class="nav-modal overlay" id="nav-modal">
 
           <div class="nav-modal-header">
-            <div class="logo logo-modal"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo" class="logo"></div>
+            <div class="logo logo-modal"><a href="/"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo"></a></div>
             <a href="javascript:void(0)" class="closeBtn" onclick="closeModal()"><i class="fas fa-times"></i></a>
           </div>
 
-          <div class="nav-modal-content" id="nav-modal-content">
+          <div class="nav-modal-links-wrapper">
             <ul class="nav-modal-links">
-              <li class="nav-item nav-item-cont-modal nav-gigs"><a href="/gigs">Gig Listings</a></li>
-              <li class="nav-item nav-item-cont-modal nav-venues"><a href="/venues">Venues</a></li>
-              <li class="nav-item nav-item-cont-modal nav-contact"><a href="#">Contact Us</a></li>
+              <li class="nav-modal-item-link nav-modal-gigs" id="nav-modal-gigs"><a href="/gigs">Gig Listings</a></li>
+              <li class="nav-modal-item-link nav-modal-venues" id="nav-modal-venues"><a href="/venues">Venues</a></li>
+              <li class="nav-modal-item-link nav-modal-contact" id="nav-modal-contact"><a href="/contact-us">Contact Us</a></li>
             </ul>
 
-            <div class="nav-modal-sm">
+            <div class="nav-modal-sm" id="nav-modal-sm">
               <ul class="modal-sm-icons">
-                <li class="nav-item nav-item-social-modal"><a href="#"><i class="fab fa-twitter fa-twitter-modal"></i></a></li>
-                <li class="nav-item nav-item-social-modal"><a href="#"><i class="fab fa-instagram fa-instagram-modal"></i></a></li>
+                <li class="nav-modal-item-social"><a href="#"><i class="fab fa-twitter fa-twitter-modal"></i></a></li>
+                <li class="nav-modal-item-social"><a href="#"><i class="fab fa-instagram fa-instagram-modal"></i></a></li>
                 <% if(currentUser) { %>
-                    <li class="nav-item nav-item-social-modal">
+                    <li class="nav-modal-item-social">
                       <a href="/users/<%= currentUser.username %>">
                       <i class="far fa-user fa-user-nav"></i>
                     </a>
@@ -74,11 +74,13 @@
               </ul>
             </div>
           </div>
-          
-          
-  
+
           <div class="nav-modal-footer" id="nav-modal-footer">
-            <div class="nav-modal-pro-ven"><a href="/login">Promoter/Venue Login</a></div>
+            <% if(currentUser) { %>
+              <div class="nav-modal-item-link"><a href="/logout">Logout</a></div>
+              <% } else { %>
+                <div class="nav-modal-item-link"><a href="/login">Promoter/Venue Login</a></div>
+                <% } %>
           </div>
 
         </div>
@@ -89,10 +91,10 @@
 
       <section>
         <% if(error && error.length > 0) { %>
-          <div class="alert-error"><%= error %></div>
+          <h1 class="alert-error" id="alert-error"><%= error %></h1>
           <% } %>
           <% if(success && success.length > 0) { %>
-              <h1 class="alert-success"><%= success %></h1>
+              <h1 class="alert-success" id="alert-success"><%= success %></h1>
               <% } %>
       </section>
 

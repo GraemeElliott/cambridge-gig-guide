@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const slugify = require('slugify');
-const moment = require('moment');
-const User = require('./userModel');
+const mongoose = require('mongoose'),
+      slugify = require('slugify'),
+      moment = require('moment'),
+      User = require('./userModel');
 
 
 const gigSchema = new mongoose.Schema({
@@ -20,7 +20,6 @@ const gigSchema = new mongoose.Schema({
   supports: String,
   venue: {
     type: String,
-    required: [true, 'A gig must have a venue (you can use TBA if not known)']
   },
   venueForUrl: String,
   date: {
@@ -40,7 +39,7 @@ const gigSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    //required: [true, 'A gig must have an image']
+    required: [true, 'A gig must have an image']
   },
   imageId: String,
   website: String,

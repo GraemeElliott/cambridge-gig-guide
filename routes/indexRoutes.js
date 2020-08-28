@@ -9,6 +9,7 @@ router
 
   router
   .route('/contact-us')
-  .get(indexController.contactUs);;
+  .get(indexController.contactUs)
+  .post(indexController.contactFormSubmit);
 
 module.exports = router

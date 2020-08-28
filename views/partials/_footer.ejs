@@ -4,12 +4,12 @@
       <div class="footer-text">
         <div><i class="far fa-copyright"></i> 2020 Cambridge Gig Guide</div>
         <div>
-            Made with <span class="heart">&#10084;</span> by <span class="do-text">DimedOut! Studios</span>
+            Made with <i class="fas fa-heart heart"></i> by <span class="developer-text">DimedOut! Studios</span>
             <a href="https://www.dimedout.com" target="_blank"><i class="far fa-window-maximize footer-sm-icon"></i></a>
             <a href="https://www.instagram.com/dimedoutstudios" target="_blank"><i class="fab fa-instagram footer-sm-icon"></i></a>
           </div>
       </div>
-      <button class="pro-ven-btn-footer button-dark"><a href="/login">Promoter/Venue Login</a></button>
+      <button onclick="window.location.href='/login'" class="login-btn-footer button-dark">Promoter/Venue Login</button>
     </div>
   </div>
 
@@ -19,6 +19,27 @@
 <script src="../../assets/scripts/gig-info-scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+<!-- Script for Jquery Form Validation -->
+<script>
+  $("form").validate({
+    rules: {
+    date: {
+      required: true,
+      date: true
+    },
+    email: {
+      required: true,
+      email: true
+    },
+    name: {
+      maxlength: 40,
+    }
+  }
+  });
+</script> 
+
 <script>
 var picker = new Pikaday({ field: document.getElementById('date') });
 </script>

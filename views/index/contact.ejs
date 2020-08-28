@@ -1,0 +1,50 @@
+<% include ../partials/_header %>
+
+<div class="wrapper">
+    <div class="form-wrapper">
+        <div class="form-heading-block">
+            <h1 class="form-heading">Contact Us</h1>
+        </div>
+        <form class="form" action="/contact-us" method="POST">
+            <div class="input-field">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" required>
+            </div>
+            <div class="input-field">
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" required>
+            </div>
+            <div class="input-field">
+                <label for="email">Email Address:</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="input-field">
+                <label for="query">Query</label>
+                <div class="custom-select">
+                    <select type="text" name="query" required>
+                        <option value="Please Choose A Query"> Select a query </option>
+                        <option value="General Enquiry"> General Enquiry </option>
+                        <option value="Account Request"> Account Request </option>
+                        <option value="Forgotten Details/Account Reset"> Forgotten Details/Account Reset </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <label for="message">Message</label>
+                <textarea type="text" name="message" required></textarea>
+            </div>
+
+            <div>
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<% include ../partials/_footer %>

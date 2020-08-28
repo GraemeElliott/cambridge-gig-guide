@@ -1,7 +1,7 @@
-const express = require('express');
-const { cloudinary, upload } = require("../models/cloudinary");
-const gigController = require('../controllers/gigController');
-const authenticationController = require('../controllers/authenticationController');
+const express = require('express'),
+      { cloudinary, upload } = require("../models/cloudinary"),
+      gigController = require('../controllers/gigController'),
+      authenticationController = require('../controllers/authenticationController');
 
 const router = express.Router();
 

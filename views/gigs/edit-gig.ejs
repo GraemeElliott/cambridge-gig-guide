@@ -1,105 +1,105 @@
 <% include ../partials/_header %>
 
-<a href="/gigs">Back to all gigs</a>
-
-<div class="form-wrapper">
-    <div class="form-heading-block">
-        <h1 class="form-heading">Edit <%= gig.name %></h1>
-    </div>
-
-    <form id="form" class="form" action="/gigs/<%= gig.nameForUrl %>?_method=PUT" method="POST" enctype="multipart/form-data"> 
-
-    <div class="input-field">
-        <label for="headliner">Headliner</label>
-        <input type="text" name="gig[name]" value = "<%= gig.name %>" placeholder="Headliner" onkeyup="gigNameUrl()">
-    </div>
-    <div class="input-field">
-        <label for="supports">Supports</label>
-        <input type="text" name="gig[supports]" value = "<%= gig.supports %>" placeholder="Supports">
-    </div>
-
-    <div class="input-field">
-        <label for="venue">Venue</label>
-        <div class="custom-select">
-            <select type="text" name="gig[venue]" onchange="venueNameUrl()">
-                <option selected><%= gig.venue %></option>
-                <option value="Cambridge Corn Exchange"> Cambridge Corn Exchange </option>
-                <option value="Flying Pig"> Flying Pig </option>
-                <option value="Hidden Rooms"> Hidden Rooms </option>
-                <option value="Storey's Field Centre"> Storey's Field Centre </option>
-                <option value="The Blue Moon"> The Blue Moon </option>
-                <option value="The Corner House"> The Corner House </option>
-                <option value="The Haymakers"> The Haymarkers </option>
-                <option value="The Junction (J1)"> The Junction (J1) </option>
-                <option value="The Junction (J2)"> The Junction (J2) </option>
-                <option value="The Junction (J3)"> The Junction (J3) </option>
-                <option value="The Portland Arms"> The Portland Arms </option>
-            </select>
+<div class="wrapper">
+    <div class="form-wrapper">
+        <div class="form-heading-block">
+            <h1 class="form-heading">Edit <%= gig.name %></h1>
         </div>
-    </div>
 
-    <div class="input-field">
-        <label for="date">Date</label>
-        <input type="text" id="date" name="gig[date]" value = "<%= gig.date %>">
-    </div>
-    <div class="image-selector input-field">     
-        <label for="image">Image</label>
-        <input type="file" id="image" name="image" accept="image/*">
-    </div>
-    <div class="input-field">
-        <label for="tickets-url">Tickets URL</label>
-        <input type="text" name="gig[ticketsUrl]" value = "<%= gig.ticketsUrl %>" placeholder="Tickets URL">
-    </div>
-    <div class="input-field">
-        <label for="Price">Price</label>
-        <input type="number" step="0.01" name="gig[price]" value = "<%= gig.price %>" placeholder="Price">
-    </div>
-    <div class="input-field">
-        <label for="website-url">Website URL</label>
-        <input type="text" name="gig[website]" value = "<%= gig.website %>" placeholder="Website URL">
-    </div>
-    <div class="input-field">
-        <label for="facebook">Facebook Profile URL</label>
-        <input type="text" name="gig[facebook]" value = "<%= gig.facebook %>" placeholder="Facebook Profile URL">
-    </div>
-    <div class="input-field">
-        <label for="twitter">Twitter Profile URL</label>
-        <input type="text" name="gig[twitter]" value = "<%= gig.twitter %>" placeholder="Twitter Profile URL">
-    </div>
-    <div class="input-field">
-        <label for="instagram">Instagram Profile URL</label>
-        <input type="text" name="gig[instagram]" value = "<%= gig.instagram %>" placeholder="Instagram Profile URL">
-    </div>
-    <div class="input-field">
-        <label for="youtube">YouTube Profile URL</label>
-        <input type="text" name="gig[youtube]" value = "<%= gig.youtube %>" placeholder="YouTube Profile URL">
-    </div>
-    <div class="input-field">
-        <label for="youtubeVideoID">YouTube Video ID</label>
-        <input type="text" name="gig[youtubeVideoID]" value = "<%= gig.youtubeVideoID %>" placeholder="YouTube Video ID">
-    </div>
-    <div class="input-field">
-        <label for="spotify">Spotify Profile URL</label>
-        <input type="text" name="gig[spotifyPlayer]" value = "<%= gig.spotify %>" placeholder="Spotify Profile URL">
-    </div>
-    <div class="input-field">
-        <label for="description">Band Bio</label>
-        <textarea type="text" name="gig[description]"><%= gig.description %></textarea>
-    </div>
+        <form id="form" class="form" action="/gigs/<%= gig.nameForUrl %>?_method=PUT" method="POST" enctype="multipart/form-data"> 
 
-    <!-- Hidden Fields -->
+        <div class="input-field">
+            <label for="headliner">Headliner</label>
+            <input class="input" type="text" name="gig[name]" value = "<%= gig.name %>" onkeyup="gigNameUrl()" required>
+        </div>
+        <div class="input-field">
+            <label for="supports">Supports</label>
+            <input type="text" name="gig[supports]" value = "<%= gig.supports %>">
+        </div>
 
-    <input id="nameForUrl" type="hidden" name="gig[nameForUrl]" value = "<%= gig.nameForUrl %>">
+        <div class="input-field">
+            <label for="venue">Venue</label>
+            <div class="custom-select">
+                <select type="text" name="gig[venue]" onchange="venueNameUrl()">
+                    <option selected><%= gig.venue %></option>
+                    <option value="Cambridge Corn Exchange"> Cambridge Corn Exchange </option>
+                    <option value="Flying Pig"> Flying Pig </option>
+                    <option value="Hidden Rooms"> Hidden Rooms </option>
+                    <option value="Storey's Field Centre"> Storey's Field Centre </option>
+                    <option value="The Blue Moon"> The Blue Moon </option>
+                    <option value="The Corner House"> The Corner House </option>
+                    <option value="The Haymakers"> The Haymarkers </option>
+                    <option value="The Junction (J1)"> The Junction (J1) </option>
+                    <option value="The Junction (J2)"> The Junction (J2) </option>
+                    <option value="The Junction (J3)"> The Junction (J3) </option>
+                    <option value="The Portland Arms"> The Portland Arms </option>
+                </select>
+            </div>
+        </div>
 
-    <input id="venueForUrl" type="hidden" name="gig[venueForUrl]" value = "<%= gig.venueForUrl %>">
+        <div class="input-field">
+            <label for="date">Date</label>
+            <input type="text" id="date" name="gig[date]" value = "<%= gig.date %>" required>
+        </div>
+        <div class="image-selector input-field">     
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*" value = "<%= gig.image %>">
+        </div>
+        <div class="input-field">
+            <label for="tickets-url">Tickets URL</label>
+            <input type="text" name="gig[ticketsUrl]" value = "<%= gig.ticketsUrl %>" required>
+        </div>
+        <div class="input-field">
+            <label for="Price">Price</label>
+            <input type="number" step="0.01" name="gig[price]" value = "<%= gig.price %>" required>
+        </div>
+        <div class="input-field">
+            <label for="website-url">Website URL</label>
+            <input type="text" name="gig[website]" value = "<%= gig.website %>">
+        </div>
+        <div class="input-field">
+            <label for="facebook">Facebook Profile URL</label>
+            <input type="text" name="gig[facebook]" value = "<%= gig.facebook %>">
+        </div>
+        <div class="input-field">
+            <label for="twitter">Twitter Profile URL</label>
+            <input type="text" name="gig[twitter]" value = "<%= gig.twitter %>">
+        </div>
+        <div class="input-field">
+            <label for="instagram">Instagram Profile URL</label>
+            <input type="text" name="gig[instagram]" value = "<%= gig.instagram %>">
+        </div>
+        <div class="input-field">
+            <label for="youtube">YouTube Profile URL</label>
+            <input type="text" name="gig[youtube]" value = "<%= gig.youtube %>">
+        </div>
+        <div class="input-field">
+            <label for="youtubeVideoID">YouTube Video ID</label>
+            <input type="text" name="gig[youtubeVideoID]" value = "<%= gig.youtubeVideoID %>">
+        </div>
+        <div class="input-field">
+            <label for="spotify">Spotify Profile URL</label>
+            <input type="text" name="gig[spotifyPlayer]" value = "<%= gig.spotify %>">
+        </div>
+        <div class="input-field">
+            <label for="description">Band Bio</label>
+            <textarea type="text" name="gig[description]" required><%= gig.description %></textarea>
+        </div>
 
-    <!-- Hidden Fields END -->
+        <!-- Hidden Fields -->
 
-    <div class="input-field">
-        <input type="submit" value="Submit" class="submit-btn">
+        <input id="nameForUrl" type="hidden" name="gig[nameForUrl]" value = "<%= gig.nameForUrl %>">
+
+        <input id="venueForUrl" type="hidden" name="gig[venueForUrl]" value = "<%= gig.venueForUrl %>">
+
+        <!-- Hidden Fields END -->
+
+        <div class="input-field">
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>
+        
+    </form>
     </div>
-    
-</form>
 </div>
 
 <% include ../partials/_footer %>

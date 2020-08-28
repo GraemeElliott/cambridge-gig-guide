@@ -1,69 +1,71 @@
 <% include ../partials/_header %>
 
-<div class="gig-image">
+<section class="gig-image">
     <img src="<%= gig.image%>">
-</div>
+</section>
 
-<h1 class="gig-listings-heading info-page-heading"><%= gig.name %></h1>
-<h2 class="gig-listings-heading info-page-heading2"><%= gig.supports %></h2>
-<h2 class="gig-listings-heading info-page-heading2"><%= gig.venue %></h2>
-<h2 class="gig-listings-heading info-page-heading2"><%= moment(gig.date).format("dddd Do MMMM YYYY") %></h2>
+<section class="gig-page-heading-wrapper">
+    <h1 class="page-heading"><%= gig.name %></h1>
+    <h2 class="page-heading"><%= gig.supports %></h2>
+    <h2 class="page-heading"><%= gig.venue %></h2>
+    <h2 class="page-heading"><%= moment(gig.date).format("dddd Do MMMM YYYY") %></h2>
+</section>
 
-<button class="info-page-button button-dark"><a href="<%= gig.ticketsUrl %>">Buy Tickets</a></button>
+<button onclick="window.location.href='<%= gig.ticketsUrl %>'" class="gig-page-button button-dark">Buy Tickets</button>
 
-<section class="info-page-links">
+<div class="gig-page-links">
 
     <% if (gig.website == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-website">
-                <i class="far fa-window-maximize info-page-icon"></i>
+            <div class="gig-page-link gig-page-website">
+                <i class="far fa-window-maximize gig-page-icon"></i>
                 <a href="<%= gig.website %>" target="_blank"><%= gig.website %></a>
             </div>
             <% } %>
 
     <% if (gig.facebook == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-facebook">
-                <i class="fab fa-facebook-square info-page-icon info-page-icon-fb"></i>
+            <div class="gig-page-link gig-page-facebook">
+                <i class="fab fa-facebook-square gig-page-icon gig-page-icon-fb"></i>
                 <a href="<%= gig.facebook %>" target="_blank"><%= gig.facebook %></a>
             </div>
             <% } %>
 
     <% if (gig.twitter == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-twitter">
-                <i class="fab fa-twitter info-page-icon"></i>
+            <div class="gig-page-link gig-page-twitter">
+                <i class="fab fa-twitter gig-page-icon"></i>
                 <a href="<%= gig.twitter %>" target="_blank"><%= gig.twitter %></a>
             </div>
             <% } %>
 
     <% if (gig.instagram == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-instagram">
-                <i class="fab fa-instagram info-page-icon info-page-icon-insta"></i>
+            <div class="gig-page-link gig-page-instagram">
+                <i class="fab fa-instagram gig-page-icon gig-page-icon-insta"></i>
                 <a href="<%= gig.instagram %>" target="_blank"><%= gig.instagram %></a>
             </div>
             <% } %>
 
     <% if (gig.youtube == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-youtube">
-                <i class="fab fa-youtube-square info-page-icon info-page-icon-yt"></i>
+            <div class="gig-page-link gig-page-youtube">
+                <i class="fab fa-youtube-square gig-page-icon gig-page-icon-yt"></i>
                 <a href="<%= gig.youtube %>" target="_blank"><%= gig.youtube %></a>
             </div>
             <% } %>
 
-    <% if (gig.youtube == "") { %>
+    <% if (gig.spotifyPlayer == "") { %>
         <% } else { %>
-            <div class="info-page-link info-page-spotify">
-                <i class="fab fa-spotify info-page-icon info-page-icon-sp"></i>
-                <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/<%= gig.nameForUrl %></a>
+            <div class="gig-page-link gig-page-spotify">
+                <i class="fab fa-spotify gig-page-icon gig-page-icon-sp"></i>
+                <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/</a>
             </div>
             <% } %>
-</section>
+</div>
 
 <section class="band-description">
-    <div class="info-page-description">
+    <div class="page-description">
         <p><%= gig.description %></p>
     </div>
 </section>
@@ -71,9 +73,9 @@
 
 <% if (gig.youtubeVideoID == "") { %>
     <% } else { %>
-        <div class="youtube-video">
+        <section class="youtube-video">
             <iframe class="youtube-video" src="https://www.youtube.com/embed/<%= gig.youtubeVideoID %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        </section>
         <% } %>
 
 <% include ../partials/_footer %>

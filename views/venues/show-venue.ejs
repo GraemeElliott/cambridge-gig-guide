@@ -1,20 +1,16 @@
 <% include ../partials/_header %>
 
-<div class="gig-image">
+<section class="gig-image">
   <img src="<%= venue.image%>">
-</div>
-
-<h1 class="gig-listings-heading info-page-heading"><%= venue.name %></h1>
-
-<section class="venue-description">
-  <div class="info-page-description">
-      <p><%= venue.description %></p>
-  </div>
 </section>
 
-<h1 class="gig-listings-heading info-page-heading">Gig Listings</h1>
+<h1 class="page-heading venues-heading"><%= venue.name %></h1>
 
+  <div class="page-description">
+      <p><%= venue.description %></p>
+  </div>
 
+<h1 class="gig-listings-heading">Gig Listings</h1>
 
 <hr class="divider">
 <div class="month-wrapper">
