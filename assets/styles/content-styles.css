@@ -52,7 +52,7 @@
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 /* Carousel */
@@ -147,6 +147,7 @@
 
 .divider {
     border: 1px solid #000000;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 /* Gig Listings End*/
@@ -336,6 +337,7 @@
     .gig-card {
         border: 2px solid #000000 !important;
     }
+}
 
 @media screen and (max-width: 550px) {
     .user-profile-header {
@@ -354,5 +356,8 @@
         display: grid;
         grid-template-columns: 1fr;
     }
-  }
 
+    .venues-heading {
+        margin-bottom: 0.5rem;
+    }
+  }
