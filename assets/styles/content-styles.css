@@ -319,6 +319,10 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .slick-slider {
+        margin-bottom: 1rem;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -327,6 +331,11 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .gig-card {
+        border: 2px solid #000000 !important;
+    }
 
 @media screen and (max-width: 550px) {
     .user-profile-header {
