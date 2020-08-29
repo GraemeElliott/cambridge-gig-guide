@@ -2,7 +2,7 @@
 
 
 
-![Cambridge Gig Guide Logo](http://cdn.mcauto-images-production.sendgrid.net/f853ccbd9d1e74e0/dfd16980-675e-4dcb-a424-58f1692d912d/449x194.png)
+![Cambridge Gig Guide Logo](https://cambridge-gig-guide.herokuapp.com/assets/images/logos/cgg-logo.png)
 
 
 
