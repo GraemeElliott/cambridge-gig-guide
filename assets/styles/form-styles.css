@@ -69,12 +69,6 @@
     padding-left: 0.7rem;
 }
 
-.input-field {
-    position: relative;
-    width: 105%;
-    height: 100%;
-}
-
 .input-field .custom-select select {
     appearance: none;
     -webkit-appearance: none;
