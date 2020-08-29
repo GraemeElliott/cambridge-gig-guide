@@ -239,6 +239,10 @@
 /* Venues End*/
 
 /* User Profile */
+.img-archive {
+    opacity: 0.2;
+}
+
 .user-profile-header {
     display: flex;
     display: -webkit-flex;
