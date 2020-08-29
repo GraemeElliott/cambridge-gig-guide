@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const mongoose = require('mongoose'),
+      dotenv = require('dotenv');
 
 process.on('uncaughtException', (error) => {
   console.log ('Uncaught Exception. Shutting down...');
