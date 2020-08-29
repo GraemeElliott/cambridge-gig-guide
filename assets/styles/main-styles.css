@@ -209,14 +209,16 @@ nav {
 /*Footer End */
 
 /*Media Queries */
+
 @media screen and (max-width: 1100px) {
   body {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-}
+  section {
+    margin-bottom: 2rem;
+  }
 
-@media screen and (max-width: 1100px) {
   h1 {
       font-size: 2rem;
   }
@@ -356,6 +358,7 @@ nav {
 }
 
 @media screen and (max-height: 750px) {
+
   .nav-modal-item-link {
     margin-top: 4rem;
     margin-bottom: 1rem;
@@ -363,6 +366,10 @@ nav {
 }
 
 @media screen and (max-width: 450px) {
+  .spotlight {
+    margin-top: -1rem !important;
+  }
+
   .error-heading {
     font-size: 10rem;
 
