@@ -127,6 +127,11 @@ nav {
   margin-left: 2rem;
 }
 
+.fa-instagram-nav,
+.fa-user-nav {
+  margin-left: 1rem;
+}
+
 .logout-btn {
   margin-left: 1rem;
 }
