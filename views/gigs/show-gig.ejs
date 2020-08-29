@@ -18,48 +18,42 @@
     <% if (gig.website == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-website">
-                <i class="far fa-window-maximize gig-page-icon"></i>
-                <a href="<%= gig.website %>" target="_blank"><%= gig.website %></a>
+                <a href="<%= gig.website %>" target="_blank"><i class="far fa-window-maximize gig-page-icon"></i></a>
             </div>
             <% } %>
 
     <% if (gig.facebook == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-facebook">
-                <i class="fab fa-facebook-square gig-page-icon gig-page-icon-fb"></i>
-                <a href="<%= gig.facebook %>" target="_blank"><%= gig.facebook %></a>
+                <a href="<%= gig.facebook %>" target="_blank"><i class="fab fa-facebook-square gig-page-icon gig-page-icon-fb"></i></a>
             </div>
             <% } %>
 
     <% if (gig.twitter == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-twitter">
-                <i class="fab fa-twitter gig-page-icon"></i>
-                <a href="<%= gig.twitter %>" target="_blank"><%= gig.twitter %></a>
+                <a href="<%= gig.twitter %>" target="_blank"><i class="fab fa-twitter gig-page-icon"></i></a>
             </div>
             <% } %>
 
     <% if (gig.instagram == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-instagram">
-                <i class="fab fa-instagram gig-page-icon gig-page-icon-insta"></i>
-                <a href="<%= gig.instagram %>" target="_blank"><%= gig.instagram %></a>
+                <a href="<%= gig.instagram %>" target="_blank"><i class="fab fa-instagram gig-page-icon gig-page-icon-insta"></i></a>
             </div>
             <% } %>
 
     <% if (gig.youtube == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-youtube">
-                <i class="fab fa-youtube-square gig-page-icon gig-page-icon-yt"></i>
-                <a href="<%= gig.youtube %>" target="_blank"><%= gig.youtube %></a>
+                <a href="<%= gig.youtube %>" target="_blank"><i class="fab fa-youtube gig-page-icon gig-page-icon-yt"></i></a>
             </div>
             <% } %>
 
     <% if (gig.spotifyPlayer == "") { %>
         <% } else { %>
             <div class="gig-page-link gig-page-spotify">
-                <i class="fab fa-spotify gig-page-icon gig-page-icon-sp"></i>
-                <a href="<%= gig.spotifyPlayer %>" target="_blank">https://open.spotify.com/artist/</a>
+                <a href="<%= gig.spotifyPlayer %>" target="_blank"><i class="fab fa-spotify gig-page-icon gig-page-icon-sp"></i></a>
             </div>
             <% } %>
 </div>

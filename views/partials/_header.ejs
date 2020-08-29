@@ -46,18 +46,20 @@
       </span>
 
       <div class="nav-modal overlay" id="nav-modal">
-
           <div class="nav-modal-header">
             <div class="logo logo-modal"><a href="/"><img src="/assets/images/logos/cgg-logo.png" alt="Cambridge Gig Guide Logo"></a></div>
             <a href="javascript:void(0)" class="closeBtn" onclick="closeModal()"><i class="fas fa-times"></i></a>
           </div>
-
           <div class="nav-modal-links-wrapper">
             <ul class="nav-modal-links">
-              <li class="nav-modal-item-link nav-modal-gigs" id="nav-modal-gigs"><a href="/gigs">Gig Listings</a></li>
-              <li class="nav-modal-item-link nav-modal-venues" id="nav-modal-venues"><a href="/venues">Venues</a></li>
-              <li class="nav-modal-item-link nav-modal-contact" id="nav-modal-contact"><a href="/contact-us">Contact Us</a></li>
-            </ul>
+
+              <li class="nav-modal-gigs" >
+                <button onclick="window.location.href='/gigs'" class="modal-btn" id="nav-modal-gigs">Gig Listings</button></li>
+                <li class="nav-modal-venues" >
+                  <button onclick="window.location.href='/venues'" class="modal-btn" id="nav-modal-venues">Venues</button></li>
+                  <li class="nav-modal-contact" >
+                    <button onclick="window.location.href='/contact-us'" class="modal-btn" id="nav-modal-contact">Contact Us</button></li>
+            </ul>        
 
             <div class="nav-modal-sm" id="nav-modal-sm">
               <ul class="modal-sm-icons">
@@ -77,14 +79,16 @@
 
           <div class="nav-modal-footer" id="nav-modal-footer">
             <% if(currentUser) { %>
-              <div class="nav-modal-item-link"><a href="/logout">Logout</a></div>
+
+                <button onclick="window.location.href='/logout'" class="modal-btn modal-btn-footer" id="nav-modal-logout">Logout</button>
+
               <% } else { %>
-                <div class="nav-modal-item-link"><a href="/login">Promoter/Venue Login</a></div>
+
+                <button onclick="window.location.href='/login'" class="modal-btn modal-btn-footer" id="nav-modal-login">Promoter/Venue Login</button>
+
                 <% } %>
           </div>
-
         </div>
-      
     </nav>
 
     <div class="main-content">

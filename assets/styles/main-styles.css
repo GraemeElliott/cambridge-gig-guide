@@ -127,11 +127,6 @@ nav {
   margin-left: 2rem;
 }
 
-.fa-instagram-nav,
-.fa-user-nav {
-  margin-left: 1rem;
-}
-
 .logout-btn {
   margin-left: 1rem;
 }
@@ -311,22 +306,46 @@ nav {
     flex: 1;
   }
 
-  .nav-modal-links a,
-  .nav-modal-footer a {
+  .nav-modal-links {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-modal-links li,
+  .modal-sm-icons li {
+    list-style-type: none;
+  }
+
+  .nav-modal-links button,
+  .nav-modal-footer button {
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
     color: #ffffff;
   }
 
-  .nav-modal-item-link {
+  li button,
+  .nav-modal-footer button {
+    background-color: #000000;
     border: solid 2px #ffffff;
+  }
+
+  li button {
     box-sizing: border-box;
     padding: 0.3rem;
     padding-left: 4rem;
     padding-right: 4rem;
     margin-top: 4rem;
-    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .nav-modal-footer button {
+    padding: 0.3rem;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+  }
+
+  .modal-btn:hover {
+    cursor: pointer;
   }
 
   .modal-sm-icons {
@@ -359,7 +378,7 @@ nav {
 
 @media screen and (max-height: 750px) {
 
-  .nav-modal-item-link {
+  li button {
     margin-top: 4rem;
     margin-bottom: 1rem;
   }
@@ -378,5 +397,10 @@ nav {
   .error-sub-heading {
     font-size: 3rem;
 
+  }
+
+  .nav-modal-footer button {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }

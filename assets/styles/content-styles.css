@@ -169,11 +169,20 @@
 }
 
 .gig-page-links {
-    margin-bottom: 2rem;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -1.5rem;
 }
 
-.gig-page-link:hover {
-    text-decoration: underline;
+.gig-page-link {
+    margin-left: 1.5rem;
 }
 
 .gig-page-icon {
@@ -347,7 +356,6 @@
 
     .add-btn {
         margin-top: 2rem;
-        
     }
 }
 
@@ -355,6 +363,10 @@
     .gig-listing {
         display: grid;
         grid-template-columns: 1fr;
+    }
+
+    .gig-page-links {
+        margin-bottom: 0rem;
     }
 
     .venues-heading {
