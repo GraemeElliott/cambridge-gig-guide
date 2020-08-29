@@ -273,6 +273,7 @@ nav {
 
   .nav-modal-footer {
     margin-bottom: 2rem;
+    margin-left: -1rem;
   }
 
   .nav-modal-header {
