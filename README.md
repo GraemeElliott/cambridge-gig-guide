@@ -43,6 +43,7 @@ There also needs to be a contact form so users can get in contact with the admin
 - CRUD functions
 - EJS front end templates
 - CSS Grid and Flexbox used
+- Mobile responsive
 - Moment JS for date handling
 - jQuery Validation plug-in and flash messages for error communication
 - Images stored on Cloudinary
