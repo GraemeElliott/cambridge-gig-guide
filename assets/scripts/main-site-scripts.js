@@ -50,9 +50,10 @@ $(document).ready(function(){
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
+    centerMode: true,
+    focusOnSelect: true,
     arrows: true,
     asNavFor: '.gig-panel-nr',
-    focusOnSelect: true,
 
     responsive: [
       {
@@ -88,6 +89,8 @@ $(document).ready(function(){
     slidesToScroll: 1,
     arrows: false,
     fade: true,
+    centerMode: true,
+    focusOnSelect: true,
     asNavFor: '.gig-grid-nr'
 });
 
@@ -99,6 +102,7 @@ $('.gig-grid-ug').slick({
   slidesToScroll: 1,
   arrows: true,
   asNavFor: '.gig-panel-ug',
+  centerMode:true,
   focusOnSelect: true,
 
   responsive: [

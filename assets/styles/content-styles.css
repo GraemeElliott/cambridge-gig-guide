@@ -74,8 +74,12 @@
     height: inherit !important;
 }
 
-.slick-current {
-    opacity: 1.0;  
+.gig-grid-nr .slick-current {
+    border: 4px solid #000000;
+}
+
+.gig-grid-ug .slick-current {
+    border: 4px solid #000000;
 }
 
 .slick-slider {
