@@ -86,6 +86,8 @@ button {
 /* Main/Body Styles End */
 
 /* Navbar */
+
+/* Navbar */
 nav {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -124,7 +126,7 @@ nav {
 }
 
 .sm-icons {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .fa-instagram-nav,
@@ -209,7 +211,6 @@ nav {
 /*Footer End */
 
 /*Media Queries */
-
 @media screen and (max-width: 1100px) {
   body {
     margin-left: 2rem;
@@ -381,14 +382,6 @@ nav {
   }
 }
 
-@media screen and (max-height: 750px) {
-
-  li button {
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-  }
-}
-
 @media screen and (max-width: 450px) {
   .spotlight {
     margin-top: -1rem !important;
@@ -409,3 +402,13 @@ nav {
     padding-right: 4rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
