@@ -24,6 +24,7 @@ exports.getAllGigs = catchAsync(async (req, res, next) => {
 exports.getGig = catchAsync(async (req, res, next) => {
   const gig = await Gig.findOne({ nameForUrl: req.params.id }, (error, gigPage) => {
     if (!gigPage) {
+      req.flash("error", "Gig does not exist")
       res.render("error", { gig: gigPage});
     } else {
       res.render("gigs/show-gig", { gig: gigPage, moment: moment });
@@ -153,18 +154,29 @@ exports.updateGig = async (req, res) => {
   );
 };
 
-exports.deleteGig = catchAsync(async (req, res) => {
-  await Gig.findOneAndRemove(
-    { nameForUrl: req.params.id},
-    req.body.gig, async (error, gig) => {
+exports.deleteGig = async (req, res) => {
+  Gig.findOne(
+    { nameForUrl: req.params.id}, async (error, gig) => {
       if (error) {
         req.flash("error", "Something went wrong")
-        res.redirect ('back')
+        console.log(error)
+        return res.redirect ('back')
       } else {
+        await cloudinary.v2.uploader.destroy(gig.imageId);
+        gig.remove();
         req.flash("success", "Gig successfully deleted")
+        res.redirect ('back')
+        try {
+          req.flash("success", "Gig successfully deleted")
+        } catch (error) {
+          if (error) {
+            req.flash("error", "Something went wrong")
+            return res.redirect ('back')
+        }        
         res.redirect ('back')
       }
     }
-  )
-});
+  })
+};
+
 
