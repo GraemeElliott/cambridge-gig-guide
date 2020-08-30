@@ -91,12 +91,12 @@ exports.createGig = async (req, res) => {
 
     //Create a new gig and save it to the database
     await Gig.create(newGig);
+    req.flash("success", "Gig successfully created")
+    res.redirect('/users/' + newGig.author.username);
   } catch (error) {
     req.flash("error", "A gig with that name already exists")
     return res.redirect('back');
   }
-  req.flash("success", "Gig successfully created")
-  res.redirect('/gigs/');
 };
 
 exports.editGigForm = catchAsync(async (req, res) => {
@@ -147,7 +147,7 @@ exports.updateGig = async (req, res) => {
         gig.description = req.body.gig.description;
         gig.save();
         req.flash("success", "Gig successfully updated")
-        res.redirect('/gigs/');
+        res.redirect('/gigs/' + gig.nameForUrl);
       }
     }
   );
@@ -161,9 +161,6 @@ exports.deleteGig = catchAsync(async (req, res) => {
         req.flash("error", "Something went wrong")
         res.redirect ('back')
       } else {
-        let result = await cloudinary.v2.uploader.destroy(gig.imageId);
-        gig.image = result.secure_url;
-        gig.imageId = result.public_id;
         req.flash("success", "Gig successfully deleted")
         res.redirect ('back')
       }
