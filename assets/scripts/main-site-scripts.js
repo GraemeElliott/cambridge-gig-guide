@@ -45,19 +45,19 @@ function closeModal() {
 
 $(document).ready(function(){
   $('.gig-grid-nr').slick({
-    dots: false,
+    dots: true,
+    arrows: false,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
     focusOnSelect: true,
-    arrows: true,
     asNavFor: '.gig-panel-nr',
 
     responsive: [
       {
-        breakpoint: 970,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -89,21 +89,20 @@ $(document).ready(function(){
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    centerMode: true,
-    focusOnSelect: true,
     asNavFor: '.gig-grid-nr'
 });
 
 $('.gig-grid-ug').slick({
-  dots: false,
+  dots: true,
+  arrows: false,
   infinite: true,
   speed: 300,
   slidesToShow: 3,
   slidesToScroll: 1,
-  arrows: true,
-  asNavFor: '.gig-panel-ug',
   centerMode:true,
   focusOnSelect: true,
+  asNavFor: '.gig-panel-ug',
+
 
   responsive: [
     {

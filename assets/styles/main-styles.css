@@ -7,6 +7,10 @@
   position: relative;
 }
 
+*,*:focus,*:hover{
+  outline:none;
+}
+
 html,
 body {
   height: 100%;

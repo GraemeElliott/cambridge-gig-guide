@@ -37,12 +37,14 @@
 
     <div class="gig-grid-nr"> 
       <% for (var gig of newlyReleasedGigs) { %>
-        <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
-          <img class="gig-image" src="<%= gig.image%>">
+        <div class="gig-card">
+          <a href="/gigs/<%= gig.nameForUrl %>">
+            <img class="gig-image" src="<%= gig.image%>">
+          </a>
           <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-        </a></div>
+        </div>
       <% } %>
     </div>
 
@@ -50,7 +52,9 @@
       <% for (var gig of newlyReleasedGigs) { %>
         <div class="row">
           <div class="column-left">
-            <a href="/gigs/<%= gig.nameForUrl %>"><img class="gig-image" src="<%= gig.image%>"></a>
+            <a class="panel-link" href="/gigs/<%= gig.nameForUrl %>">
+            <img class="gig-image" src="<%= gig.image%>">
+          </a>
           </div>
           <div class="column-right">
             <div class="gig-name gig-panel-name gig-panel-text"> <%= gig.name %> </div>
@@ -59,6 +63,7 @@
             <div class="gig-description"> <%= gig.description %> </div>
         </div>
           </div>
+        
       <% } %>
     </div>
   </section>
@@ -68,12 +73,14 @@
 
     <div class="gig-grid-ug">
       <% for (var gig of upcommingGigs) { %>
-        <div class="gig-card"><a href="/gigs/<%= gig.nameForUrl %>">
-          <img class="gig-image" src="<%= gig.image%>">
+        <div class="gig-card">
+          <a href="/gigs/<%= gig.nameForUrl %>">
+            <img class="gig-image" src="<%= gig.image%>">
+          </a>
           <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-        </a></div>
+        </div>
       <% } %>
     </div>
 
@@ -81,7 +88,9 @@
       <% for (var gig of upcommingGigs) { %>
         <div class="row">
           <div class="column-left">
-            <a href="/gigs/<%= gig.nameForUrl %>"><img class="gig-image" src="<%= gig.image%>"></a>
+            <a href="/gigs/<%= gig.nameForUrl %>">
+            <img class="gig-image" src="<%= gig.image%>">
+          </a>
           </div>
           <div class="column-right">
             <div class="gig-name gig-panel-name gig-panel-text"> <%= gig.name %> </div>
