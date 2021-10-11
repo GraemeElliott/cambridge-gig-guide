@@ -2,20 +2,20 @@
 
   <section class="spotlight">
 
-      <div class="gig-card spotlight-card"><a href="/gigs/biffy-clyro">
+    <div class="gig-card spotlight-card"><a href="/gigs/biffy-clyro">
 
-          <% for (var gig of gigs) { %>
-            
-            <% if (gig.name === 'Biffy Clyro') { %>
-              <img class="spotlight-image" src="<%= gig.image %>">
-              <div class="gig-name card-text"> <%= gig.name %> </div>
-              <div class="gig-venue card-text"> <%= gig.venue %> </div>
-              <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
-  
-            <% } %>
-          <% } %>
-  
-        </a></div>
+      <% for (var gig of gigs) { %>
+        
+        <% if (gig.name === 'Biffy Clyro') { %>
+          <img class="spotlight-image" src="<%= gig.image %>">
+          <div class="gig-name card-text"> <%= gig.name %> </div>
+          <div class="gig-venue card-text"> <%= gig.venue %> </div>
+          <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
+
+        <% } %>
+      <% } %>
+
+    </a></div>
 
       <div class="monthly-update">
           <h1 class="monthly-update-heading"><%= moment().format('MMMM YYYY') %> - News and what's comming up</h1>
