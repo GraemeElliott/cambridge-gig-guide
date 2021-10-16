@@ -41,10 +41,12 @@
           <a href="/gigs/<%= gig.nameForUrl %>">
             <img class="gig-image" src="<%= gig.image%>">
           </a>
+          <div class="gig-card-footer">
           <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
         </div>
+      </div>
       <% } %>
     </div>
 
@@ -53,7 +55,7 @@
         <div class="row">
           <div class="column-left">
             <a class="panel-link" href="/gigs/<%= gig.nameForUrl %>">
-            <img class="gig-image" src="<%= gig.image%>">
+            <img class="gig-panel-image" src="<%= gig.image%>">
           </a>
           </div>
           <div class="column-right">
@@ -77,10 +79,12 @@
           <a href="/gigs/<%= gig.nameForUrl %>">
             <img class="gig-image" src="<%= gig.image%>">
           </a>
+          <div class="gig-card-footer">
           <div class="gig-name card-text"> <%= gig.name %> </div>
             <div class="gig-venue card-text"> <%= gig.venue %> </div>
             <div class="gig-date card-text"> <%= moment(gig.date).format("dddd Do MMMM YYYY") %> </div>
         </div>
+      </div>
       <% } %>
     </div>
 
@@ -89,7 +93,7 @@
         <div class="row">
           <div class="column-left">
             <a href="/gigs/<%= gig.nameForUrl %>">
-            <img class="gig-image" src="<%= gig.image%>">
+            <img class="gig-panel-image" src="<%= gig.image%>">
           </a>
           </div>
           <div class="column-right">

@@ -7,14 +7,27 @@
     flex-direction: row;
 }
 
-.gig-card {
-    border: solid 4px #000000;
-    height: 100%;
-}
-
 .spotlight-card {
     width: 160%;
     margin-right: 2rem;
+}
+
+.gig-card {
+    border: solid 4px #000000;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+
+}
+
+.gig-image {
+    width: 100%;
+    height: 12rem;  
+}
+
+.gig-image-edit {
+    width: 100%;
+    height: 10rem;
 }
 
 .card-text {
@@ -27,6 +40,10 @@
     margin-top: 0.5rem;
     text-transform: uppercase;
     font-weight: 400;
+}
+
+.gig-name-edit {
+    margin-top: 0rem;
 }
 
 .gig-date {
@@ -42,7 +59,6 @@
 /* Spotlight End */
 
 /* Index Gig Listings */
-
 .gig-listings-heading {
     text-transform: uppercase;
     text-align: center;
@@ -246,8 +262,8 @@
     border: 0;
 }
 
-.gig-card-edit {
-    margin-bottom: -4px;
+.gig-card-footer {
+    margin-top: auto;
 }
 
 .manage-btns-wrapper {
@@ -256,6 +272,7 @@
     display: -moz-flex;
     display: -ms-flex;
     flex-direction: column;
+    margin-bottom: 0;
 }
 
 .manage-btns-wrapper button {
@@ -266,7 +283,8 @@
 
 .delete-btn {
     border-top: 0;
-    border-bottom: 0; 
+    border-bottom: 0;
+    bottom: 0;
 }
 
 .delete-btn:hover {
@@ -364,3 +382,4 @@
         margin-bottom: 0.5rem;
     }
   }
+
