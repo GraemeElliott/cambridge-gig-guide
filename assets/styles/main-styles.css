@@ -95,9 +95,12 @@ button {
 
 /* Navbar */
 nav {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  grid-template-areas: "logo links sm-icons";
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 2rem;
   margin-bottom: 2rem;
   align-items: center;
@@ -230,6 +233,7 @@ nav {
   }
 
   .logo {
+      width: auto;
       height: 6rem;
     }
   
