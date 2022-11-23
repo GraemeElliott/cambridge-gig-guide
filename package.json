@@ -37,7 +37,7 @@
     "validator": "^12.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.10",
     "connect-browser-sync": "^2.1.0",
     "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0",
