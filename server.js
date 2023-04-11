@@ -10,7 +10,7 @@ process.on('uncaughtException', (error) => {
 dotenv.config({ path: './config.env' });
 const app = require('./app');
 
-const DB = process.env.DATABASE;
+const DB = process.env.DATABASE.toString();
 
 mongoose
   .connect(DB, {
