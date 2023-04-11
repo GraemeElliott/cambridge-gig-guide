@@ -1,393 +1,394 @@
 /* Spotlight */
 .spotlight {
-    display: flex;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    flex-direction: row;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  flex-direction: row;
 }
 
 .spotlight-card {
-    width: 160%;
-    margin-right: 2rem;
+  width: 160%;
+  margin-right: 2rem;
 }
 
 .gig-card {
-    border: solid 4px #000000;
-    height: 100%;
-    display: flex !important;
-    flex-direction: column;
-
+  border: solid 4px #000000;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
 }
 
 .gig-image {
-    width: 100%;
-    height: 12rem;  
+  width: 100%;
+  height: 12rem;
+}
+
+.gig-all-listing-image {
+  width: 100%;
+  height: 10rem;
 }
 
 .gig-image-edit {
-    width: 100%;
-    height: 10rem;
+  width: 100%;
+  height: 10rem;
 }
 
 .card-text {
-    font-size: 1rem;
-    margin-left: 0.5rem;
-    font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 .gig-name {
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-    font-weight: 400;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .gig-name-edit {
-    margin-top: 0rem;
+  margin-top: 0rem;
 }
 
 .gig-date {
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 .monthly-update h1 {
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-    
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 /* Spotlight End */
 
 /* Index Gig Listings */
 .gig-listings-heading {
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
 /* Carousel */
 
-.slick-prev:before, .slick-next:before {
-    color:#BFBFBF !important;
+.slick-prev:before,
+.slick-next:before {
+  color: #bfbfbf !important;
 }
 
-.slick-track{
-    display: flex !important;
-    margin-bottom: 0.5rem;
+.slick-track {
+  display: flex !important;
+  margin-bottom: 0.5rem;
 }
 
 .slick-slide {
-    margin-right: 0.75rem;
-    margin-left: 0.75rem;
-    height: inherit !important;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+  height: inherit !important;
 }
 
 .slick-slider {
-    height: 100%;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+  height: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 /* Index Gigs Panel */
 .column-left {
-    float: left;
-    width: 48%;
-    margin-right: 2rem;
+  float: left;
+  width: 48%;
+  margin-right: 2rem;
 }
-  
+
 .column-right {
-    float: left;
-    width: 48%;
+  float: left;
+  width: 48%;
 }
 
 .column-right .gig-date {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-  
+
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .gig-panel-name {
-    text-transform: none !important;
+  text-transform: none !important;
 }
 
 .gig-panel-text {
-    line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .gig-description {
-    white-space: pre-wrap;
-    white-space: pre-line;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
 }
 
 .view-more-btn {
-    margin:auto;
-    display:block;
+  margin: auto;
+  display: block;
 }
 /* Index Gig Listings End */
 
 /* Gig Listings */
 .gig-listing {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1rem;
-    grid-row-gap: 2rem;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  grid-row-gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .month-date-heading {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .divider {
-    border: 1px solid #000000;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  border: 1px solid #000000;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 /* Gig Listings End*/
 
 /* Gig Page */
 .page-heading {
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    line-height: 4rem;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  line-height: 4rem;
 }
 
 .gig-page-button {
-    margin-top: -1rem;
-    margin-bottom: 3rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gig-page-links {
-    display: flex;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: -1.5rem;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: -1.5rem;
 }
 
 .gig-page-link {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .gig-page-icon {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    vertical-align: middle;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  vertical-align: middle;
 }
 
 .gig-page-icon-fb,
 .gig-page-icon-insta,
 .gig-page-icon-yt {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 .page-description {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 .youtube-video {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
 }
 
 .youtube-video iframe {
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 /* Gig Page End */
 
 /* Venues */
 .all-venues-venue {
-    width: 100%;
-    border: 2px solid #000000;
-    padding: 1rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight: 600;
+  width: 100%;
+  border: 2px solid #000000;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .venues-heading {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 /* Venues End*/
 
 /* User Profile */
 .img-archive {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 .user-profile-header {
-    display: flex;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    margin-bottom: 3rem;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 3rem;
 }
 
 .add-btn:hover {
-    background-color: #21bf73;
-    border: 0;
+  background-color: #21bf73;
+  border: 0;
 }
 
 .gig-card-footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .manage-btns-wrapper {
-    display: flex;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    flex-direction: column;
-    margin-bottom: 0;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  flex-direction: column;
+  margin-bottom: 0;
 }
 
 .manage-btns-wrapper button {
-    width: 100%;
-    border-left: 0;
-    border-right: 0;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
 }
 
 .delete-btn {
-    border-top: 0;
-    border-bottom: 0;
-    bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
+  bottom: 0;
 }
 
 .delete-btn:hover {
-    background-color: #e20325;
+  background-color: #e20325;
 }
 /* User Profile End*/
 
 /* Media Queries */
 
 @media screen and (max-width: 1000px) {
-    .spotlight {
-        flex-direction: column-reverse;
-        margin: auto;
-        margin-bottom: 2rem;
-    }
+  .spotlight {
+    flex-direction: column-reverse;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
 
-    .spotlight-card {
-        width: 100%;
-    }
+  .spotlight-card {
+    width: 100%;
+  }
 
-    .monthly-update-heading {
-        text-align: center;
-    }
+  .monthly-update-heading {
+    text-align: center;
+  }
 
-    .monthly-update-text {
-        margin-bottom: 2rem;
-    }
+  .monthly-update-text {
+    margin-bottom: 2rem;
+  }
 
-    .column-left {
-        display: none;
-    }
+  .column-left {
+    display: none;
+  }
 
-    .column-right {
-        width: 100%;
-        margin: auto;
-    }
+  .column-right {
+    width: 100%;
+    margin: auto;
+  }
 
-    .newly-released-gigs {
-        margin-bottom: 3rem;
-    }
-    
-    .upcomming-gigs {
-        margin-bottom: 3rem;
-    }
-    
-    .upcomming-gigs .gig-description {
-        margin-bottom: 0.5rem;
-    }
+  .newly-released-gigs {
+    margin-bottom: 3rem;
+  }
 
-    .gig-listing {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  .upcomming-gigs {
+    margin-bottom: 3rem;
+  }
 
-    .slick-slider {
-        margin-bottom: 1rem;
-    }
+  .upcomming-gigs .gig-description {
+    margin-bottom: 0.5rem;
+  }
+
+  .gig-listing {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .slick-slider {
+    margin-bottom: 1rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
-    .gig-listing {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+  .gig-listing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .gig-card {
-        border: 4px solid #000000 !important;
-    }
+  .gig-card {
+    border: 4px solid #000000 !important;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .user-profile-header {
-        flex-direction: column;
-        align-items: center;
-    }
+  .user-profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .add-btn {
-        margin-top: 2rem;
-    }
-
+  .add-btn {
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .gig-listing {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .gig-page-links {
-        margin-bottom: 0rem;
-    }
-
-    .venues-heading {
-        margin-bottom: 0.5rem;
-    }
-
-    .gig-card {
-        -webkit-transform:scale(0.9);
--moz-transform:scale(0.9);
--ms-transform:scale(0.9);
-transform:scale(0.9);
-    }
+  .gig-listing {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
+  .gig-page-links {
+    margin-bottom: 0rem;
+  }
+
+  .venues-heading {
+    margin-bottom: 0.5rem;
+  }
+
+  .gig-card {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
