@@ -50,6 +50,4 @@ There also needs to be a contact form so users can get in contact with the admin
 - Nodemailer and SendGrid for email communication
 - Slick for carousels ([Slick Website](https://kenwheeler.github.io/slick/))
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/GraemeElliott/)
-
  
